@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "current_hr_news_scraper.py": {
+      "runtime": "python3.11",
+      "maxDuration": 30
+    }
+  },
+  "build": {
+    "env": {
+      "PYTHONPATH": ".",
+      "PIP_TARGET": "./.pip"
+    }
+  }
+}
