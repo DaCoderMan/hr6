@@ -1,0 +1,24 @@
+{
+  "name": "hr-news-scraper",
+  "version": "1.0.0",
+  "description": "HR News Scraper - Proprietary software by Workitu Tech, Israel",
+  "type": "module",
+  "main": "api/index.js",
+  "scripts": {
+    "test": "node test_logging.js",
+    "start": "node api/index.js"
+  },
+  "keywords": [
+    "hr",
+    "news",
+    "scraper",
+    "vercel",
+    "api"
+  ],
+  "author": "Workitu Tech, Israel",
+  "license": "PROPRIETARY",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "private": true
+}

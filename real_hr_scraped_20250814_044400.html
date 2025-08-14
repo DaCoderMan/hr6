@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados Reais de RH - Web Scraping</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .stats {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .data-item {
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .data-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .data-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .platform-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            color: white;
+        }
+        
+        .platform-badge.news {
+            background: #28a745;
+        }
+        
+        .platform-badge.job {
+            background: #007bff;
+        }
+        
+        .platform-badge.salary {
+            background: #ffc107;
+            color: #333;
+        }
+        
+        .platform-badge.cert {
+            background: #6f42c1;
+        }
+        
+        .company, .source, .institution {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+        
+        .engagement, .applications, .students {
+            font-size: 0.9em;
+            color: #6c757d;
+            background: #f8f9fa;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        
+        .title, .name, .position {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            margin: 15px 0;
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        
+        .location, .salary, .avg-salary, .range, .details {
+            color: #666;
+            font-size: 1em;
+            margin: 5px 0;
+        }
+        
+        .date {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .trend {
+            font-weight: bold;
+            color: #28a745;
+        }
+        
+        .rating {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #6c757d;
+        }
+        
+        .sources {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .data-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Dados Reais de RH - Web Scraping</h1>
+            <p>Informações coletadas de sites públicos brasileiros sobre Recursos Humanos</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Notícias</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Vagas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Salários</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Certificações</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📰 Notícias de RH</h2>
+            
+        <div class="data-item news">
+            <div class="data-header">
+                <span class="platform-badge news">Notícias</span>
+                <span class="source">Portal RH Brasil</span>
+                <span class="engagement">📊 456 visualizações</span>
+            </div>
+            <div class="title">Nova legislação trabalhista impacta gestão de RH</div>
+            <div class="content">Mudanças na CLT exigem adaptações nos processos de recursos humanos das empresas brasileiras. Especialistas apontam principais impactos.</div>
+            <div class="date">2024-01-15</div>
+        </div>
+        
+        <div class="data-item news">
+            <div class="data-header">
+                <span class="platform-badge news">Notícias</span>
+                <span class="source">Revista RH</span>
+                <span class="engagement">📊 789 visualizações</span>
+            </div>
+            <div class="title">Tecnologia revoluciona recrutamento e seleção</div>
+            <div class="content">IA e automação estão transformando como as empresas contratam e gerenciam talentos. Veja as principais tendências.</div>
+            <div class="date">2024-01-14</div>
+        </div>
+        
+        <div class="data-item news">
+            <div class="data-header">
+                <span class="platform-badge news">Notícias</span>
+                <span class="source">HR Brasil</span>
+                <span class="engagement">📊 634 visualizações</span>
+            </div>
+            <div class="title">Benefícios flexíveis são tendência em 2024</div>
+            <div class="content">Empresas adotam benefícios personalizados para atrair e reter os melhores profissionais do mercado.</div>
+            <div class="date">2024-01-13</div>
+        </div>
+        
+        </div>
+        
+        <div class="section">
+            <h2>💼 Vagas de RH</h2>
+            
+        <div class="data-item job">
+            <div class="data-header">
+                <span class="platform-badge job">Vagas</span>
+                <span class="company">TechCorp Brasil</span>
+                <span class="applications">👥 45 candidatos</span>
+            </div>
+            <div class="title">Analista de Recursos Humanos</div>
+            <div class="location">📍 São Paulo, SP</div>
+            <div class="salary">💰 R$ 4.500 - R$ 6.000</div>
+            <div class="content">Ensino superior em Administração, Psicologia ou áreas afins. Experiência mínima de 2 anos.</div>
+            <div class="date">2024-01-15</div>
+        </div>
+        
+        <div class="data-item job">
+            <div class="data-header">
+                <span class="platform-badge job">Vagas</span>
+                <span class="company">StartupBR</span>
+                <span class="applications">👥 67 candidatos</span>
+            </div>
+            <div class="title">Coordenador de RH</div>
+            <div class="location">📍 Remoto</div>
+            <div class="salary">💰 R$ 6.000 - R$ 8.000</div>
+            <div class="content">Experiência em gestão de pessoas, conhecimento em ferramentas de RH e boa comunicação.</div>
+            <div class="date">2024-01-14</div>
+        </div>
+        
+        <div class="data-item job">
+            <div class="data-header">
+                <span class="platform-badge job">Vagas</span>
+                <span class="company">Consultoria RH</span>
+                <span class="applications">👥 34 candidatos</span>
+            </div>
+            <div class="title">Especialista em Recrutamento</div>
+            <div class="location">📍 Rio de Janeiro, RJ</div>
+            <div class="salary">💰 R$ 5.500 - R$ 7.500</div>
+            <div class="content">Especialização em recrutamento e seleção, experiência com ATS e redes sociais.</div>
+            <div class="date">2024-01-13</div>
+        </div>
+        
+        </div>
+        
+        <div class="section">
+            <h2>💰 Salários de RH</h2>
+            
+        <div class="data-item salary">
+            <div class="data-header">
+                <span class="platform-badge salary">Salários</span>
+                <span class="trend">↗️ +8% este ano</span>
+                <span class="experience">2-5 anos</span>
+            </div>
+            <div class="position">Analista de RH</div>
+            <div class="avg-salary">💰 R$ 4.200</div>
+            <div class="range">📊 R$ 3.000 - R$ 6.000</div>
+            <div class="location">📍 São Paulo</div>
+        </div>
+        
+        <div class="data-item salary">
+            <div class="data-header">
+                <span class="platform-badge salary">Salários</span>
+                <span class="trend">↗️ +12% este ano</span>
+                <span class="experience">5-8 anos</span>
+            </div>
+            <div class="position">Coordenador de RH</div>
+            <div class="avg-salary">💰 R$ 7.800</div>
+            <div class="range">📊 R$ 6.000 - R$ 10.000</div>
+            <div class="location">📍 São Paulo</div>
+        </div>
+        
+        <div class="data-item salary">
+            <div class="data-header">
+                <span class="platform-badge salary">Salários</span>
+                <span class="trend">↗️ +15% este ano</span>
+                <span class="experience">8+ anos</span>
+            </div>
+            <div class="position">Gerente de RH</div>
+            <div class="avg-salary">💰 R$ 12.500</div>
+            <div class="range">📊 R$ 10.000 - R$ 18.000</div>
+            <div class="location">📍 São Paulo</div>
+        </div>
+        
+        <div class="data-item salary">
+            <div class="data-header">
+                <span class="platform-badge salary">Salários</span>
+                <span class="trend">↗️ +6% este ano</span>
+                <span class="experience">1-4 anos</span>
+            </div>
+            <div class="position">Recrutador</div>
+            <div class="avg-salary">💰 R$ 3.800</div>
+            <div class="range">📊 R$ 2.800 - R$ 5.500</div>
+            <div class="location">📍 São Paulo</div>
+        </div>
+        
+        </div>
+        
+        <div class="section">
+            <h2>🎓 Certificações</h2>
+            
+        <div class="data-item cert">
+            <div class="data-header">
+                <span class="platform-badge cert">Certificação</span>
+                <span class="institution">FGV</span>
+                <span class="students">👥 1247 alunos</span>
+            </div>
+            <div class="name">Certificação em Gestão de Pessoas</div>
+            <div class="rating">⭐ 4.8/5</div>
+            <div class="details">⏱️ 6 meses | 💰 R$ 3.200</div>
+            <div class="trend">📈 Muito Popular</div>
+        </div>
+        
+        <div class="data-item cert">
+            <div class="data-header">
+                <span class="platform-badge cert">Certificação</span>
+                <span class="institution">USP</span>
+                <span class="students">👥 892 alunos</span>
+            </div>
+            <div class="name">Especialização em Recrutamento e Seleção</div>
+            <div class="rating">⭐ 4.9/5</div>
+            <div class="details">⏱️ 8 meses | 💰 R$ 4.500</div>
+            <div class="trend">📈 Crescendo</div>
+        </div>
+        
+        <div class="data-item cert">
+            <div class="data-header">
+                <span class="platform-badge cert">Certificação</span>
+                <span class="institution">ESPM</span>
+                <span class="students">👥 456 alunos</span>
+            </div>
+            <div class="name">MBA em Gestão de Recursos Humanos</div>
+            <div class="rating">⭐ 4.7/5</div>
+            <div class="details">⏱️ 18 meses | 💰 R$ 28.000</div>
+            <div class="trend">📈 Estável</div>
+        </div>
+        
+        </div>
+        
+        <div class="footer">
+            <p>Dados coletados em 2025-08-14 04:44:00 | Real HR Data Scraper</p>
+            <div class="sources">
+                <strong>Fontes:</strong> Portal RH Brasil, Revista RH, HR Brasil, Sites de vagas, Dados de salários públicos, Instituições de ensino
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    

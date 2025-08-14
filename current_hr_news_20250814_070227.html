@@ -1,0 +1,2864 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Notícias sobre Recolocação Profissional - HR4ALL.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+        
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 25s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 30s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 22s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 6s; animation-duration: 28s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 8s; animation-duration: 35s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 10s; animation-duration: 26s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 12s; animation-duration: 32s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 14s; animation-duration: 24s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 16s; animation-duration: 29s; }
+        .particle:nth-child(10) { left: 95%; animation-delay: 18s; animation-duration: 27s; }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* HR4ALL Logo */
+        .hr4all-logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+        
+        .hr4all-logo h2 {
+            color: #fff;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            margin: 0;
+        }
+        
+        .hr4all-logo .tagline {
+            color: #ccc;
+            font-size: 0.9em;
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+        
+        @keyframes logoGlow {
+            0% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
+            100% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .developer-credit {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #FFD700;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        
+        .developer-credit a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .developer-credit a:hover {
+            color: #FFA500;
+            text-decoration: underline;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stats-overview {
+            background: rgba(248, 249, 250, 0.9);
+            padding: 30px;
+            border-bottom: 1px solid rgba(233, 236, 239, 0.5);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+        
+        .news-section {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .news-section h2 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .news-item {
+            border: 1px solid rgba(233, 236, 239, 0.5);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        
+        .news-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        
+        .news-item.top-10 {
+            border-left: 5px solid #28a745;
+            background: linear-gradient(135deg, rgba(248, 255, 249, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%);
+        }
+        
+        .news-item.top-50 {
+            border-left: 5px solid #ffc107;
+        }
+        
+        .news-item.top-100 {
+            border-left: 5px solid #6c757d;
+        }
+        
+        .news-item.current {
+            border: 2px solid #dc3545;
+            background: linear-gradient(135deg, rgba(255, 245, 245, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%);
+        }
+        
+        .rank-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #667eea;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .current-badge {
+            background: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .source {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+        
+        .category {
+            background: #e9ecef;
+            color: #495057;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .date {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        .title {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .search-google {
+            background: #4285f4;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .search-google:hover {
+            background: #3367d6;
+            text-decoration: none;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
+        }
+        
+        .summary {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        
+        .engagement {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .engagement span {
+            font-size: 0.95em;
+            color: #6c757d;
+            background: #f8f9fa;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .sidebar {
+            background: rgba(248, 249, 250, 0.9);
+            padding: 25px;
+            border-radius: 12px;
+            height: fit-content;
+        }
+        
+        .sidebar h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .stat-label {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .stat-number {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .stat-views {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .footer {
+            background: rgba(248, 249, 250, 0.9);
+            padding: 25px;
+            text-align: center;
+            color: #6c757d;
+            border-top: 1px solid rgba(233, 236, 239, 0.5);
+        }
+        
+        @media (max-width: 1200px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .news-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .engagement {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hr4all-logo {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-background"></div>
+    
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    
+    <!-- HR4ALL Logo -->
+    <div class="hr4all-logo">
+        <h2>HR4ALL.com</h2>
+        <div class="tagline">Recolocação Profissional</div>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="developer-credit">Desenvolvido por <a href="https://workitu.com" target="_blank" rel="noopener noreferrer">Workitu TecH</a></div>
+            <h1>🔥 100 Notícias sobre Recolocação Profissional</h1>
+            <p>As notícias mais recentes sobre entrevistas, processos seletivos e carreira no Brasil</p>
+            <p>Coletadas de fontes especializadas em carreira e atualizadas diariamente</p>
+            <p>Rankeadas por popularidade e relevância</p>
+        </div>
+        
+        <div class="stats-overview">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">6,341,350</div>
+                    <div class="stat-label">Total de Visualizações</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">63,362</div>
+                    <div class="stat-label">Total de Compartilhamentos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15,812</div>
+                    <div class="stat-label">Total de Comentários</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">33</div>
+                    <div class="stat-label">Notícias da Semana</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="news-section">
+                <h2>📰 Notícias sobre Recolocação Profissional</h2>
+                
+        <div class="news-item top-10 current">
+            <div class="rank-badge">#1</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Indeed Brasil</span>
+                    <span class="category">Processos Seletivos</span>
+                    <span class="date">2025-08-14</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Dicas para passar em processos seletivos: Como se destacar em</h3>
+                <p class="summary">Guia prático sobre dicas para passar em processos seletivos com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 86,775 visualizações</span>
+                    <span class="shares">📤 867 compartilhamentos</span>
+                    <span class="comments">💬 216 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+passar+em+processos+seletivos:+Como+se+destacar+em+Indeed+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10 current">
+            <div class="rank-badge">#2</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Processos Seletivos</span>
+                    <span class="date">2025-08-14</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Processos seletivos remotos: Técnicas infalíveis para</h3>
+                <p class="summary">Guia prático sobre processos seletivos remotos com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 85,799 visualizações</span>
+                    <span class="shares">📤 857 compartilhamentos</span>
+                    <span class="comments">💬 214 comentários</span>
+                    <a href="https://www.google.com/search?q=Processos+seletivos+remotos:+Técnicas+infalíveis+para+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10 current">
+            <div class="rank-badge">#3</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Glassdoor Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-14</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Entrevistas por videoconferência: Guia completo para 2025</h3>
+                <p class="summary">Artigo completo sobre entrevistas por videoconferência com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 85,116 visualizações</span>
+                    <span class="shares">📤 851 compartilhamentos</span>
+                    <span class="comments">💬 212 comentários</span>
+                    <a href="https://www.google.com/search?q=Entrevistas+por+videoconferência:+Guia+completo+para+2025+Glassdoor+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10 current">
+            <div class="rank-badge">#4</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Exame Carreira</span>
+                    <span class="category">Transição de Carreira</span>
+                    <span class="date">2025-08-14</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Mudança de carreira após os 40: Passo a passo para</h3>
+                <p class="summary">Artigo completo sobre mudança de carreira após os 40 com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 83,693 visualizações</span>
+                    <span class="shares">📤 836 compartilhamentos</span>
+                    <span class="comments">💬 209 comentários</span>
+                    <a href="https://www.google.com/search?q=Mudança+de+carreira+após+os+40:+Passo+a+passo+para+Exame+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10 current">
+            <div class="rank-badge">#5</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Indeed Brasil</span>
+                    <span class="category">Networking</span>
+                    <span class="date">2025-08-14</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Networking para transição de carreira: Técnicas infalíveis para</h3>
+                <p class="summary">Estratégias práticas sobre networking para transição de carreira adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 80,867 visualizações</span>
+                    <span class="shares">📤 808 compartilhamentos</span>
+                    <span class="comments">💬 202 comentários</span>
+                    <a href="https://www.google.com/search?q=Networking+para+transição+de+carreira:+Técnicas+infalíveis+para+Indeed+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10 current">
+            <div class="rank-badge">#6</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-14</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Preparação para entrevistas comportamentais: Como se preparar para</h3>
+                <p class="summary">Guia prático sobre preparação para entrevistas comportamentais com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 80,580 visualizações</span>
+                    <span class="shares">📤 805 compartilhamentos</span>
+                    <span class="comments">💬 201 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+para+entrevistas+comportamentais:+Como+se+preparar+para+Portal+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10 current">
+            <div class="rank-badge">#7</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Glassdoor Brasil</span>
+                    <span class="category">LinkedIn</span>
+                    <span class="date">2025-08-13</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">LinkedIn para busca de emprego: Guia completo para 2025</h3>
+                <p class="summary">Artigo completo sobre linkedin para busca de emprego com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 86,278 visualizações</span>
+                    <span class="shares">📤 862 compartilhamentos</span>
+                    <span class="comments">💬 215 comentários</span>
+                    <a href="https://www.google.com/search?q=LinkedIn+para+busca+de+emprego:+Guia+completo+para+2025+Glassdoor+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10 current">
+            <div class="rank-badge">#8</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">InfoJobs</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-13</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Como se destacar em entrevistas de emprego: Como se destacar em</h3>
+                <p class="summary">Dicas essenciais sobre como se destacar em entrevistas de emprego para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 85,044 visualizações</span>
+                    <span class="shares">📤 850 compartilhamentos</span>
+                    <span class="comments">💬 212 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+se+destacar+em+entrevistas+de+emprego:+Como+se+destacar+em+InfoJobs+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10 current">
+            <div class="rank-badge">#9</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Exame Carreira</span>
+                    <span class="category">Processos Seletivos</span>
+                    <span class="date">2025-08-13</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Como lidar com rejeição em processos seletivos: Dicas práticas que funcionam</h3>
+                <p class="summary">Dicas essenciais sobre como lidar com rejeição em processos seletivos para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 83,087 visualizações</span>
+                    <span class="shares">📤 830 compartilhamentos</span>
+                    <span class="comments">💬 207 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+lidar+com+rejeição+em+processos+seletivos:+Dicas+práticas+que+funcionam+Exame+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10 current">
+            <div class="rank-badge">#10</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Exame Carreira</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-13</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Preparação para entrevistas comportamentais: Como se preparar para</h3>
+                <p class="summary">Artigo completo sobre preparação para entrevistas comportamentais com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 80,844 visualizações</span>
+                    <span class="shares">📤 808 compartilhamentos</span>
+                    <span class="comments">💬 202 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+para+entrevistas+comportamentais:+Como+se+preparar+para+Exame+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#11</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Processos Seletivos</span>
+                    <span class="date">2025-08-13</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Dicas para passar em processos seletivos: Estratégias comprovadas para</h3>
+                <p class="summary">Como aplicar técnicas de dicas para passar em processos seletivos para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 79,607 visualizações</span>
+                    <span class="shares">📤 796 compartilhamentos</span>
+                    <span class="comments">💬 199 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+passar+em+processos+seletivos:+Estratégias+comprovadas+para+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#12</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">LinkedIn Brasil</span>
+                    <span class="category">Processos Seletivos</span>
+                    <span class="date">2025-08-12</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Dicas para passar em processos seletivos: Guia completo para 2025</h3>
+                <p class="summary">Dicas essenciais sobre dicas para passar em processos seletivos para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 84,679 visualizações</span>
+                    <span class="shares">📤 846 compartilhamentos</span>
+                    <span class="comments">💬 211 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+passar+em+processos+seletivos:+Guia+completo+para+2025+LinkedIn+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#13</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-12</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Dicas para segunda entrevista: Dicas práticas que funcionam</h3>
+                <p class="summary">Dicas essenciais sobre dicas para segunda entrevista para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 82,232 visualizações</span>
+                    <span class="shares">📤 822 compartilhamentos</span>
+                    <span class="comments">💬 205 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+segunda+entrevista:+Dicas+práticas+que+funcionam+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#14</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-12</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Preparação para entrevistas comportamentais: Técnicas infalíveis para</h3>
+                <p class="summary">Dicas essenciais sobre preparação para entrevistas comportamentais para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 80,226 visualizações</span>
+                    <span class="shares">📤 802 compartilhamentos</span>
+                    <span class="comments">💬 200 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+para+entrevistas+comportamentais:+Técnicas+infalíveis+para+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#15</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">InfoJobs</span>
+                    <span class="category">Processos Seletivos</span>
+                    <span class="date">2025-08-12</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Dicas para passar em processos seletivos: Estratégias comprovadas para</h3>
+                <p class="summary">Guia prático sobre dicas para passar em processos seletivos com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 78,203 visualizações</span>
+                    <span class="shares">📤 782 compartilhamentos</span>
+                    <span class="comments">💬 195 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+passar+em+processos+seletivos:+Estratégias+comprovadas+para+InfoJobs+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#16</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Catho</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-11</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Entrevistas por videoconferência: Como se preparar para</h3>
+                <p class="summary">Como aplicar técnicas de entrevistas por videoconferência para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 82,869 visualizações</span>
+                    <span class="shares">📤 828 compartilhamentos</span>
+                    <span class="comments">💬 207 comentários</span>
+                    <a href="https://www.google.com/search?q=Entrevistas+por+videoconferência:+Como+se+preparar+para+Catho+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#17</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Processos Seletivos</span>
+                    <span class="date">2025-08-11</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Dicas para passar em processos seletivos: Dicas práticas que funcionam</h3>
+                <p class="summary">Dicas essenciais sobre dicas para passar em processos seletivos para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 79,356 visualizações</span>
+                    <span class="shares">📤 793 compartilhamentos</span>
+                    <span class="comments">💬 198 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+passar+em+processos+seletivos:+Dicas+práticas+que+funcionam+Portal+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#18</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Recrutamento</span>
+                    <span class="date">2025-08-11</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Recrutamento e seleção com IA: Passo a passo para</h3>
+                <p class="summary">Dicas essenciais sobre recrutamento e seleção com ia para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 76,867 visualizações</span>
+                    <span class="shares">📤 768 compartilhamentos</span>
+                    <span class="comments">💬 192 comentários</span>
+                    <a href="https://www.google.com/search?q=Recrutamento+e+seleção+com+IA:+Passo+a+passo+para+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#19</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Indeed Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-10</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Preparação para entrevistas comportamentais: Como se destacar em</h3>
+                <p class="summary">Guia prático sobre preparação para entrevistas comportamentais com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 80,920 visualizações</span>
+                    <span class="shares">📤 809 compartilhamentos</span>
+                    <span class="comments">💬 202 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+para+entrevistas+comportamentais:+Como+se+destacar+em+Indeed+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#20</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Glassdoor Brasil</span>
+                    <span class="category">Currículo</span>
+                    <span class="date">2025-08-10</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Reescrevendo currículo para recolocação: Passo a passo para</h3>
+                <p class="summary">Como aplicar técnicas de reescrevendo currículo para recolocação para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 77,295 visualizações</span>
+                    <span class="shares">📤 772 compartilhamentos</span>
+                    <span class="comments">💬 193 comentários</span>
+                    <a href="https://www.google.com/search?q=Reescrevendo+currículo+para+recolocação:+Passo+a+passo+para+Glassdoor+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#21</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">InfoJobs</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-10</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Preparação psicológica para entrevistas: Segredos para conquistar</h3>
+                <p class="summary">Dicas essenciais sobre preparação psicológica para entrevistas para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 74,577 visualizações</span>
+                    <span class="shares">📤 745 compartilhamentos</span>
+                    <span class="comments">💬 186 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+psicológica+para+entrevistas:+Segredos+para+conquistar+InfoJobs+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#22</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Catho</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-09</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Preparação para entrevistas comportamentais: Técnicas infalíveis para</h3>
+                <p class="summary">Como aplicar técnicas de preparação para entrevistas comportamentais para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 74,966 visualizações</span>
+                    <span class="shares">📤 749 compartilhamentos</span>
+                    <span class="comments">💬 187 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+para+entrevistas+comportamentais:+Técnicas+infalíveis+para+Catho+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#23</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Indeed Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-09</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Como se destacar em entrevistas de emprego: Como se destacar em</h3>
+                <p class="summary">Artigo completo sobre como se destacar em entrevistas de emprego com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 73,779 visualizações</span>
+                    <span class="shares">📤 737 compartilhamentos</span>
+                    <span class="comments">💬 184 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+se+destacar+em+entrevistas+de+emprego:+Como+se+destacar+em+Indeed+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#24</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Glassdoor Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-08</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Dicas para segunda entrevista: Passo a passo para</h3>
+                <p class="summary">Artigo completo sobre dicas para segunda entrevista com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 76,295 visualizações</span>
+                    <span class="shares">📤 762 compartilhamentos</span>
+                    <span class="comments">💬 190 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+segunda+entrevista:+Passo+a+passo+para+Glassdoor+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#25</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Vagas.com</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-08</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Como responder perguntas difíceis em entrevistas: Estratégias comprovadas para</h3>
+                <p class="summary">Estratégias práticas sobre como responder perguntas difíceis em entrevistas adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 75,013 visualizações</span>
+                    <span class="shares">📤 750 compartilhamentos</span>
+                    <span class="comments">💬 187 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+responder+perguntas+difíceis+em+entrevistas:+Estratégias+comprovadas+para+Vagas.com+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#26</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-08</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Como se destacar em entrevistas de emprego: Como se destacar em</h3>
+                <p class="summary">Como aplicar técnicas de como se destacar em entrevistas de emprego para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 74,904 visualizações</span>
+                    <span class="shares">📤 749 compartilhamentos</span>
+                    <span class="comments">💬 187 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+se+destacar+em+entrevistas+de+emprego:+Como+se+destacar+em+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#27</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Exame Carreira</span>
+                    <span class="category">Recrutamento</span>
+                    <span class="date">2025-08-08</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Recrutamento e seleção com IA: Técnicas infalíveis para</h3>
+                <p class="summary">Guia prático sobre recrutamento e seleção com ia com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 73,765 visualizações</span>
+                    <span class="shares">📤 737 compartilhamentos</span>
+                    <span class="comments">💬 184 comentários</span>
+                    <a href="https://www.google.com/search?q=Recrutamento+e+seleção+com+IA:+Técnicas+infalíveis+para+Exame+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#28</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">InfoJobs</span>
+                    <span class="category">Negociação</span>
+                    <span class="date">2025-08-08</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Como negociar salário em nova oportunidade: Passo a passo para</h3>
+                <p class="summary">Como aplicar técnicas de como negociar salário em nova oportunidade para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 73,415 visualizações</span>
+                    <span class="shares">📤 734 compartilhamentos</span>
+                    <span class="comments">💬 183 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+negociar+salário+em+nova+oportunidade:+Passo+a+passo+para+InfoJobs+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#29</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Vagas.com</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-08</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Como se destacar em entrevistas de emprego: Passo a passo para</h3>
+                <p class="summary">Artigo completo sobre como se destacar em entrevistas de emprego com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 71,328 visualizações</span>
+                    <span class="shares">📤 713 compartilhamentos</span>
+                    <span class="comments">💬 178 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+se+destacar+em+entrevistas+de+emprego:+Passo+a+passo+para+Vagas.com+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#30</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">InfoJobs</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-07</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Como responder perguntas difíceis em entrevistas: Técnicas infalíveis para</h3>
+                <p class="summary">Dicas essenciais sobre como responder perguntas difíceis em entrevistas para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 73,234 visualizações</span>
+                    <span class="shares">📤 732 compartilhamentos</span>
+                    <span class="comments">💬 183 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+responder+perguntas+difíceis+em+entrevistas:+Técnicas+infalíveis+para+InfoJobs+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#31</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Indeed Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-07</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Como responder perguntas difíceis em entrevistas: Guia completo para 2025</h3>
+                <p class="summary">Guia prático sobre como responder perguntas difíceis em entrevistas com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 72,056 visualizações</span>
+                    <span class="shares">📤 720 compartilhamentos</span>
+                    <span class="comments">💬 180 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+responder+perguntas+difíceis+em+entrevistas:+Guia+completo+para+2025+Indeed+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#32</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">LinkedIn Brasil</span>
+                    <span class="category">LinkedIn</span>
+                    <span class="date">2025-08-07</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">LinkedIn para busca de emprego: Dicas práticas que funcionam</h3>
+                <p class="summary">Como aplicar técnicas de linkedin para busca de emprego para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 71,743 visualizações</span>
+                    <span class="shares">📤 717 compartilhamentos</span>
+                    <span class="comments">💬 179 comentários</span>
+                    <a href="https://www.google.com/search?q=LinkedIn+para+busca+de+emprego:+Dicas+práticas+que+funcionam+LinkedIn+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 current">
+            <div class="rank-badge">#33</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Glassdoor Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-07</span>
+                    <span class="current-badge">🔥 Atual</span>
+                </div>
+                <h3 class="title">Preparação psicológica para entrevistas: Como se preparar para</h3>
+                <p class="summary">Estratégias práticas sobre preparação psicológica para entrevistas adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 70,718 visualizações</span>
+                    <span class="shares">📤 707 compartilhamentos</span>
+                    <span class="comments">💬 176 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+psicológica+para+entrevistas:+Como+se+preparar+para+Glassdoor+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#34</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Currículo</span>
+                    <span class="date">2025-08-06</span>
+                    
+                </div>
+                <h3 class="title">Reescrevendo currículo para recolocação: Dicas práticas que funcionam</h3>
+                <p class="summary">Estratégias práticas sobre reescrevendo currículo para recolocação adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 74,099 visualizações</span>
+                    <span class="shares">📤 740 compartilhamentos</span>
+                    <span class="comments">💬 185 comentários</span>
+                    <a href="https://www.google.com/search?q=Reescrevendo+currículo+para+recolocação:+Dicas+práticas+que+funcionam+Portal+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#35</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Processos Seletivos</span>
+                    <span class="date">2025-08-06</span>
+                    
+                </div>
+                <h3 class="title">Como lidar com rejeição em processos seletivos: Estratégias comprovadas para</h3>
+                <p class="summary">Como aplicar técnicas de como lidar com rejeição em processos seletivos para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 73,218 visualizações</span>
+                    <span class="shares">📤 732 compartilhamentos</span>
+                    <span class="comments">💬 183 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+lidar+com+rejeição+em+processos+seletivos:+Estratégias+comprovadas+para+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#36</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Transição de Carreira</span>
+                    <span class="date">2025-08-06</span>
+                    
+                </div>
+                <h3 class="title">Mudança de carreira após os 40: Como se destacar em</h3>
+                <p class="summary">Artigo completo sobre mudança de carreira após os 40 com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 72,427 visualizações</span>
+                    <span class="shares">📤 724 compartilhamentos</span>
+                    <span class="comments">💬 181 comentários</span>
+                    <a href="https://www.google.com/search?q=Mudança+de+carreira+após+os+40:+Como+se+destacar+em+Portal+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#37</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">InfoJobs</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-06</span>
+                    
+                </div>
+                <h3 class="title">Preparação para entrevistas comportamentais: Dicas práticas que funcionam</h3>
+                <p class="summary">Dicas essenciais sobre preparação para entrevistas comportamentais para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 71,282 visualizações</span>
+                    <span class="shares">📤 712 compartilhamentos</span>
+                    <span class="comments">💬 178 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+para+entrevistas+comportamentais:+Dicas+práticas+que+funcionam+InfoJobs+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#38</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Glassdoor Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-05</span>
+                    
+                </div>
+                <h3 class="title">Como responder perguntas difíceis em entrevistas: Estratégias comprovadas para</h3>
+                <p class="summary">Como aplicar técnicas de como responder perguntas difíceis em entrevistas para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 71,414 visualizações</span>
+                    <span class="shares">📤 714 compartilhamentos</span>
+                    <span class="comments">💬 178 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+responder+perguntas+difíceis+em+entrevistas:+Estratégias+comprovadas+para+Glassdoor+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#39</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-05</span>
+                    
+                </div>
+                <h3 class="title">Entrevistas por videoconferência: Como se destacar em</h3>
+                <p class="summary">Dicas essenciais sobre entrevistas por videoconferência para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 69,814 visualizações</span>
+                    <span class="shares">📤 698 compartilhamentos</span>
+                    <span class="comments">💬 174 comentários</span>
+                    <a href="https://www.google.com/search?q=Entrevistas+por+videoconferência:+Como+se+destacar+em+Portal+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#40</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">LinkedIn</span>
+                    <span class="date">2025-08-04</span>
+                    
+                </div>
+                <h3 class="title">LinkedIn para busca de emprego: Estratégias de sucesso para</h3>
+                <p class="summary">Estratégias práticas sobre linkedin para busca de emprego adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 71,187 visualizações</span>
+                    <span class="shares">📤 711 compartilhamentos</span>
+                    <span class="comments">💬 177 comentários</span>
+                    <a href="https://www.google.com/search?q=LinkedIn+para+busca+de+emprego:+Estratégias+de+sucesso+para+Portal+RH+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#41</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Networking</span>
+                    <span class="date">2025-08-04</span>
+                    
+                </div>
+                <h3 class="title">Networking para transição de carreira: Técnicas infalíveis para</h3>
+                <p class="summary">Como aplicar técnicas de networking para transição de carreira para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 68,198 visualizações</span>
+                    <span class="shares">📤 681 compartilhamentos</span>
+                    <span class="comments">💬 170 comentários</span>
+                    <a href="https://www.google.com/search?q=Networking+para+transição+de+carreira:+Técnicas+infalíveis+para+Portal+RH+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#42</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">LinkedIn Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-03</span>
+                    
+                </div>
+                <h3 class="title">Preparação para entrevistas comportamentais: Passo a passo para</h3>
+                <p class="summary">Guia prático sobre preparação para entrevistas comportamentais com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 68,515 visualizações</span>
+                    <span class="shares">📤 685 compartilhamentos</span>
+                    <span class="comments">💬 171 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+para+entrevistas+comportamentais:+Passo+a+passo+para+LinkedIn+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#43</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Vagas.com</span>
+                    <span class="category">Currículo</span>
+                    <span class="date">2025-08-03</span>
+                    
+                </div>
+                <h3 class="title">Reescrevendo currículo para recolocação: Guia completo para 2025</h3>
+                <p class="summary">Dicas essenciais sobre reescrevendo currículo para recolocação para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 67,360 visualizações</span>
+                    <span class="shares">📤 673 compartilhamentos</span>
+                    <span class="comments">💬 168 comentários</span>
+                    <a href="https://www.google.com/search?q=Reescrevendo+currículo+para+recolocação:+Guia+completo+para+2025+Vagas.com+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#44</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Networking</span>
+                    <span class="date">2025-08-02</span>
+                    
+                </div>
+                <h3 class="title">Networking para transição de carreira: Como se preparar para</h3>
+                <p class="summary">Dicas essenciais sobre networking para transição de carreira para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 68,036 visualizações</span>
+                    <span class="shares">📤 680 compartilhamentos</span>
+                    <span class="comments">💬 170 comentários</span>
+                    <a href="https://www.google.com/search?q=Networking+para+transição+de+carreira:+Como+se+preparar+para+Portal+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#45</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Exame Carreira</span>
+                    <span class="category">Negociação</span>
+                    <span class="date">2025-08-02</span>
+                    
+                </div>
+                <h3 class="title">Como negociar salário em nova oportunidade: Segredos para conquistar</h3>
+                <p class="summary">Guia prático sobre como negociar salário em nova oportunidade com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 63,338 visualizações</span>
+                    <span class="shares">📤 633 compartilhamentos</span>
+                    <span class="comments">💬 158 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+negociar+salário+em+nova+oportunidade:+Segredos+para+conquistar+Exame+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#46</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Catho</span>
+                    <span class="category">Processos Seletivos</span>
+                    <span class="date">2025-08-02</span>
+                    
+                </div>
+                <h3 class="title">Dicas para passar em processos seletivos: Como se preparar para</h3>
+                <p class="summary">Estratégias práticas sobre dicas para passar em processos seletivos adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 62,550 visualizações</span>
+                    <span class="shares">📤 625 compartilhamentos</span>
+                    <span class="comments">💬 156 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+passar+em+processos+seletivos:+Como+se+preparar+para+Catho+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#47</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">LinkedIn Brasil</span>
+                    <span class="category">Transição de Carreira</span>
+                    <span class="date">2025-08-02</span>
+                    
+                </div>
+                <h3 class="title">Mudança de carreira após os 40: Segredos para conquistar</h3>
+                <p class="summary">Artigo completo sobre mudança de carreira após os 40 com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 62,476 visualizações</span>
+                    <span class="shares">📤 624 compartilhamentos</span>
+                    <span class="comments">💬 156 comentários</span>
+                    <a href="https://www.google.com/search?q=Mudança+de+carreira+após+os+40:+Segredos+para+conquistar+LinkedIn+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#48</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">LinkedIn Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-08-01</span>
+                    
+                </div>
+                <h3 class="title">Como se destacar em entrevistas de emprego: Técnicas infalíveis para</h3>
+                <p class="summary">Como aplicar técnicas de como se destacar em entrevistas de emprego para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 66,385 visualizações</span>
+                    <span class="shares">📤 663 compartilhamentos</span>
+                    <span class="comments">💬 165 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+se+destacar+em+entrevistas+de+emprego:+Técnicas+infalíveis+para+LinkedIn+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#49</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Catho</span>
+                    <span class="category">Networking</span>
+                    <span class="date">2025-08-01</span>
+                    
+                </div>
+                <h3 class="title">Networking para transição de carreira: Estratégias comprovadas para</h3>
+                <p class="summary">Como aplicar técnicas de networking para transição de carreira para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 60,684 visualizações</span>
+                    <span class="shares">📤 606 compartilhamentos</span>
+                    <span class="comments">💬 151 comentários</span>
+                    <a href="https://www.google.com/search?q=Networking+para+transição+de+carreira:+Estratégias+comprovadas+para+Catho+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50 ">
+            <div class="rank-badge">#50</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Indeed Brasil</span>
+                    <span class="category">LinkedIn</span>
+                    <span class="date">2025-07-31</span>
+                    
+                </div>
+                <h3 class="title">LinkedIn para busca de emprego: Melhores práticas em</h3>
+                <p class="summary">Guia prático sobre linkedin para busca de emprego com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 65,208 visualizações</span>
+                    <span class="shares">📤 652 compartilhamentos</span>
+                    <span class="comments">💬 163 comentários</span>
+                    <a href="https://www.google.com/search?q=LinkedIn+para+busca+de+emprego:+Melhores+práticas+em+Indeed+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#51</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Vagas.com</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-31</span>
+                    
+                </div>
+                <h3 class="title">Entrevistas por videoconferência: Técnicas infalíveis para</h3>
+                <p class="summary">Estratégias práticas sobre entrevistas por videoconferência adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 60,873 visualizações</span>
+                    <span class="shares">📤 608 compartilhamentos</span>
+                    <span class="comments">💬 152 comentários</span>
+                    <a href="https://www.google.com/search?q=Entrevistas+por+videoconferência:+Técnicas+infalíveis+para+Vagas.com+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#52</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Currículo</span>
+                    <span class="date">2025-07-30</span>
+                    
+                </div>
+                <h3 class="title">Reescrevendo currículo para recolocação: Como se destacar em</h3>
+                <p class="summary">Dicas essenciais sobre reescrevendo currículo para recolocação para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 64,882 visualizações</span>
+                    <span class="shares">📤 648 compartilhamentos</span>
+                    <span class="comments">💬 162 comentários</span>
+                    <a href="https://www.google.com/search?q=Reescrevendo+currículo+para+recolocação:+Como+se+destacar+em+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#53</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-30</span>
+                    
+                </div>
+                <h3 class="title">Como se destacar em entrevistas de emprego: Estratégias de sucesso para</h3>
+                <p class="summary">Guia prático sobre como se destacar em entrevistas de emprego com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 59,930 visualizações</span>
+                    <span class="shares">📤 599 compartilhamentos</span>
+                    <span class="comments">💬 149 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+se+destacar+em+entrevistas+de+emprego:+Estratégias+de+sucesso+para+Portal+RH+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#54</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Catho</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-29</span>
+                    
+                </div>
+                <h3 class="title">Como responder perguntas difíceis em entrevistas: Como se destacar em</h3>
+                <p class="summary">Dicas essenciais sobre como responder perguntas difíceis em entrevistas para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 61,172 visualizações</span>
+                    <span class="shares">📤 611 compartilhamentos</span>
+                    <span class="comments">💬 152 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+responder+perguntas+difíceis+em+entrevistas:+Como+se+destacar+em+Catho+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#55</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Catho</span>
+                    <span class="category">Transição de Carreira</span>
+                    <span class="date">2025-07-29</span>
+                    
+                </div>
+                <h3 class="title">Mudança de carreira após os 40: Técnicas infalíveis para</h3>
+                <p class="summary">Como aplicar técnicas de mudança de carreira após os 40 para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 58,141 visualizações</span>
+                    <span class="shares">📤 581 compartilhamentos</span>
+                    <span class="comments">💬 145 comentários</span>
+                    <a href="https://www.google.com/search?q=Mudança+de+carreira+após+os+40:+Técnicas+infalíveis+para+Catho+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#56</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Vagas.com</span>
+                    <span class="category">Networking</span>
+                    <span class="date">2025-07-28</span>
+                    
+                </div>
+                <h3 class="title">Networking para transição de carreira: Como se preparar para</h3>
+                <p class="summary">Estratégias práticas sobre networking para transição de carreira adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 57,979 visualizações</span>
+                    <span class="shares">📤 579 compartilhamentos</span>
+                    <span class="comments">💬 144 comentários</span>
+                    <a href="https://www.google.com/search?q=Networking+para+transição+de+carreira:+Como+se+preparar+para+Vagas.com+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#57</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Exame Carreira</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-28</span>
+                    
+                </div>
+                <h3 class="title">Como responder perguntas difíceis em entrevistas: Estratégias de sucesso para</h3>
+                <p class="summary">Artigo completo sobre como responder perguntas difíceis em entrevistas com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 55,226 visualizações</span>
+                    <span class="shares">📤 552 compartilhamentos</span>
+                    <span class="comments">💬 138 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+responder+perguntas+difíceis+em+entrevistas:+Estratégias+de+sucesso+para+Exame+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#58</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Indeed Brasil</span>
+                    <span class="category">Negociação</span>
+                    <span class="date">2025-07-27</span>
+                    
+                </div>
+                <h3 class="title">Como negociar salário em nova oportunidade: Estratégias de sucesso para</h3>
+                <p class="summary">Como aplicar técnicas de como negociar salário em nova oportunidade para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 60,724 visualizações</span>
+                    <span class="shares">📤 607 compartilhamentos</span>
+                    <span class="comments">💬 151 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+negociar+salário+em+nova+oportunidade:+Estratégias+de+sucesso+para+Indeed+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#59</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Transição de Carreira</span>
+                    <span class="date">2025-07-27</span>
+                    
+                </div>
+                <h3 class="title">Mudança de carreira após os 40: Dicas práticas que funcionam</h3>
+                <p class="summary">Guia prático sobre mudança de carreira após os 40 com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 59,932 visualizações</span>
+                    <span class="shares">📤 599 compartilhamentos</span>
+                    <span class="comments">💬 149 comentários</span>
+                    <a href="https://www.google.com/search?q=Mudança+de+carreira+após+os+40:+Dicas+práticas+que+funcionam+Portal+RH+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#60</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">LinkedIn Brasil</span>
+                    <span class="category">Currículo</span>
+                    <span class="date">2025-07-27</span>
+                    
+                </div>
+                <h3 class="title">Reescrevendo currículo para recolocação: Técnicas infalíveis para</h3>
+                <p class="summary">Como aplicar técnicas de reescrevendo currículo para recolocação para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 58,811 visualizações</span>
+                    <span class="shares">📤 588 compartilhamentos</span>
+                    <span class="comments">💬 147 comentários</span>
+                    <a href="https://www.google.com/search?q=Reescrevendo+currículo+para+recolocação:+Técnicas+infalíveis+para+LinkedIn+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#61</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-27</span>
+                    
+                </div>
+                <h3 class="title">Preparação psicológica para entrevistas: Estratégias de sucesso para</h3>
+                <p class="summary">Estratégias práticas sobre preparação psicológica para entrevistas adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 58,563 visualizações</span>
+                    <span class="shares">📤 585 compartilhamentos</span>
+                    <span class="comments">💬 146 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+psicológica+para+entrevistas:+Estratégias+de+sucesso+para+Portal+RH+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#62</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Processos Seletivos</span>
+                    <span class="date">2025-07-27</span>
+                    
+                </div>
+                <h3 class="title">Dicas para passar em processos seletivos: Dicas práticas que funcionam</h3>
+                <p class="summary">Artigo completo sobre dicas para passar em processos seletivos com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 58,107 visualizações</span>
+                    <span class="shares">📤 581 compartilhamentos</span>
+                    <span class="comments">💬 145 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+passar+em+processos+seletivos:+Dicas+práticas+que+funcionam+Portal+RH+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#63</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Catho</span>
+                    <span class="category">LinkedIn</span>
+                    <span class="date">2025-07-27</span>
+                    
+                </div>
+                <h3 class="title">LinkedIn para busca de emprego: Guia completo para 2025</h3>
+                <p class="summary">Dicas essenciais sobre linkedin para busca de emprego para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 56,741 visualizações</span>
+                    <span class="shares">📤 567 compartilhamentos</span>
+                    <span class="comments">💬 141 comentários</span>
+                    <a href="https://www.google.com/search?q=LinkedIn+para+busca+de+emprego:+Guia+completo+para+2025+Catho+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#64</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Exame Carreira</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-27</span>
+                    
+                </div>
+                <h3 class="title">Preparação psicológica para entrevistas: Dicas práticas que funcionam</h3>
+                <p class="summary">Dicas essenciais sobre preparação psicológica para entrevistas para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 55,362 visualizações</span>
+                    <span class="shares">📤 553 compartilhamentos</span>
+                    <span class="comments">💬 138 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+psicológica+para+entrevistas:+Dicas+práticas+que+funcionam+Exame+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#65</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Glassdoor Brasil</span>
+                    <span class="category">Networking</span>
+                    <span class="date">2025-07-27</span>
+                    
+                </div>
+                <h3 class="title">Networking para transição de carreira: Como se destacar em</h3>
+                <p class="summary">Dicas essenciais sobre networking para transição de carreira para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 55,050 visualizações</span>
+                    <span class="shares">📤 550 compartilhamentos</span>
+                    <span class="comments">💬 137 comentários</span>
+                    <a href="https://www.google.com/search?q=Networking+para+transição+de+carreira:+Como+se+destacar+em+Glassdoor+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#66</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">InfoJobs</span>
+                    <span class="category">Currículo</span>
+                    <span class="date">2025-07-26</span>
+                    
+                </div>
+                <h3 class="title">Reescrevendo currículo para recolocação: Passo a passo para</h3>
+                <p class="summary">Como aplicar técnicas de reescrevendo currículo para recolocação para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 54,456 visualizações</span>
+                    <span class="shares">📤 544 compartilhamentos</span>
+                    <span class="comments">💬 136 comentários</span>
+                    <a href="https://www.google.com/search?q=Reescrevendo+currículo+para+recolocação:+Passo+a+passo+para+InfoJobs+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#67</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-26</span>
+                    
+                </div>
+                <h3 class="title">Como responder perguntas difíceis em entrevistas: Técnicas infalíveis para</h3>
+                <p class="summary">Dicas essenciais sobre como responder perguntas difíceis em entrevistas para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 54,434 visualizações</span>
+                    <span class="shares">📤 544 compartilhamentos</span>
+                    <span class="comments">💬 136 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+responder+perguntas+difíceis+em+entrevistas:+Técnicas+infalíveis+para+Portal+RH+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#68</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Transição de Carreira</span>
+                    <span class="date">2025-07-26</span>
+                    
+                </div>
+                <h3 class="title">Mudança de carreira após os 40: Dicas práticas que funcionam</h3>
+                <p class="summary">Dicas essenciais sobre mudança de carreira após os 40 para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 54,024 visualizações</span>
+                    <span class="shares">📤 540 compartilhamentos</span>
+                    <span class="comments">💬 135 comentários</span>
+                    <a href="https://www.google.com/search?q=Mudança+de+carreira+após+os+40:+Dicas+práticas+que+funcionam+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#69</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Negociação</span>
+                    <span class="date">2025-07-26</span>
+                    
+                </div>
+                <h3 class="title">Como negociar salário em nova oportunidade: Guia completo para 2025</h3>
+                <p class="summary">Como aplicar técnicas de como negociar salário em nova oportunidade para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 53,079 visualizações</span>
+                    <span class="shares">📤 530 compartilhamentos</span>
+                    <span class="comments">💬 132 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+negociar+salário+em+nova+oportunidade:+Guia+completo+para+2025+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#70</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Vagas.com</span>
+                    <span class="category">Transição de Carreira</span>
+                    <span class="date">2025-07-25</span>
+                    
+                </div>
+                <h3 class="title">Mudança de carreira após os 40: Passo a passo para</h3>
+                <p class="summary">Dicas essenciais sobre mudança de carreira após os 40 para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 56,066 visualizações</span>
+                    <span class="shares">📤 560 compartilhamentos</span>
+                    <span class="comments">💬 140 comentários</span>
+                    <a href="https://www.google.com/search?q=Mudança+de+carreira+após+os+40:+Passo+a+passo+para+Vagas.com+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#71</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-25</span>
+                    
+                </div>
+                <h3 class="title">Dicas para segunda entrevista: Passo a passo para</h3>
+                <p class="summary">Dicas essenciais sobre dicas para segunda entrevista para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 52,195 visualizações</span>
+                    <span class="shares">📤 521 compartilhamentos</span>
+                    <span class="comments">💬 130 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+segunda+entrevista:+Passo+a+passo+para+Portal+RH+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#72</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Glassdoor Brasil</span>
+                    <span class="category">Processos Seletivos</span>
+                    <span class="date">2025-07-25</span>
+                    
+                </div>
+                <h3 class="title">Dicas para passar em processos seletivos: Como se preparar para</h3>
+                <p class="summary">Dicas essenciais sobre dicas para passar em processos seletivos para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 52,021 visualizações</span>
+                    <span class="shares">📤 520 compartilhamentos</span>
+                    <span class="comments">💬 130 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+passar+em+processos+seletivos:+Como+se+preparar+para+Glassdoor+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#73</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Currículo</span>
+                    <span class="date">2025-07-25</span>
+                    
+                </div>
+                <h3 class="title">Reescrevendo currículo para recolocação: Estratégias comprovadas para</h3>
+                <p class="summary">Estratégias práticas sobre reescrevendo currículo para recolocação adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 51,482 visualizações</span>
+                    <span class="shares">📤 514 compartilhamentos</span>
+                    <span class="comments">💬 128 comentários</span>
+                    <a href="https://www.google.com/search?q=Reescrevendo+currículo+para+recolocação:+Estratégias+comprovadas+para+Portal+RH+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#74</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Vagas.com</span>
+                    <span class="category">Processos Seletivos</span>
+                    <span class="date">2025-07-25</span>
+                    
+                </div>
+                <h3 class="title">Dicas para passar em processos seletivos: Estratégias comprovadas para</h3>
+                <p class="summary">Como aplicar técnicas de dicas para passar em processos seletivos para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 50,578 visualizações</span>
+                    <span class="shares">📤 505 compartilhamentos</span>
+                    <span class="comments">💬 126 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+passar+em+processos+seletivos:+Estratégias+comprovadas+para+Vagas.com+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#75</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-25</span>
+                    
+                </div>
+                <h3 class="title">Como se destacar em entrevistas de emprego: Guia completo para 2025</h3>
+                <p class="summary">Estratégias práticas sobre como se destacar em entrevistas de emprego adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 50,314 visualizações</span>
+                    <span class="shares">📤 503 compartilhamentos</span>
+                    <span class="comments">💬 125 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+se+destacar+em+entrevistas+de+emprego:+Guia+completo+para+2025+Portal+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#76</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Glassdoor Brasil</span>
+                    <span class="category">Transição de Carreira</span>
+                    <span class="date">2025-07-24</span>
+                    
+                </div>
+                <h3 class="title">Mudança de carreira após os 40: Passo a passo para</h3>
+                <p class="summary">Estratégias práticas sobre mudança de carreira após os 40 adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 55,288 visualizações</span>
+                    <span class="shares">📤 552 compartilhamentos</span>
+                    <span class="comments">💬 138 comentários</span>
+                    <a href="https://www.google.com/search?q=Mudança+de+carreira+após+os+40:+Passo+a+passo+para+Glassdoor+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#77</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Exame Carreira</span>
+                    <span class="category">Networking</span>
+                    <span class="date">2025-07-24</span>
+                    
+                </div>
+                <h3 class="title">Networking para transição de carreira: Estratégias comprovadas para</h3>
+                <p class="summary">Como aplicar técnicas de networking para transição de carreira para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 54,510 visualizações</span>
+                    <span class="shares">📤 545 compartilhamentos</span>
+                    <span class="comments">💬 136 comentários</span>
+                    <a href="https://www.google.com/search?q=Networking+para+transição+de+carreira:+Estratégias+comprovadas+para+Exame+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#78</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">InfoJobs</span>
+                    <span class="category">Networking</span>
+                    <span class="date">2025-07-23</span>
+                    
+                </div>
+                <h3 class="title">Networking para transição de carreira: Como se destacar em</h3>
+                <p class="summary">Guia prático sobre networking para transição de carreira com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 54,176 visualizações</span>
+                    <span class="shares">📤 541 compartilhamentos</span>
+                    <span class="comments">💬 135 comentários</span>
+                    <a href="https://www.google.com/search?q=Networking+para+transição+de+carreira:+Como+se+destacar+em+InfoJobs+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#79</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Exame Carreira</span>
+                    <span class="category">Currículo</span>
+                    <span class="date">2025-07-23</span>
+                    
+                </div>
+                <h3 class="title">Reescrevendo currículo para recolocação: Técnicas infalíveis para</h3>
+                <p class="summary">Guia prático sobre reescrevendo currículo para recolocação com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 52,846 visualizações</span>
+                    <span class="shares">📤 528 compartilhamentos</span>
+                    <span class="comments">💬 132 comentários</span>
+                    <a href="https://www.google.com/search?q=Reescrevendo+currículo+para+recolocação:+Técnicas+infalíveis+para+Exame+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#80</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Vagas.com</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-23</span>
+                    
+                </div>
+                <h3 class="title">Preparação para entrevistas comportamentais: Estratégias de sucesso para</h3>
+                <p class="summary">Artigo completo sobre preparação para entrevistas comportamentais com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 50,422 visualizações</span>
+                    <span class="shares">📤 504 compartilhamentos</span>
+                    <span class="comments">💬 126 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+para+entrevistas+comportamentais:+Estratégias+de+sucesso+para+Vagas.com+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#81</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-23</span>
+                    
+                </div>
+                <h3 class="title">Entrevistas por videoconferência: Guia completo para 2025</h3>
+                <p class="summary">Artigo completo sobre entrevistas por videoconferência com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 48,866 visualizações</span>
+                    <span class="shares">📤 488 compartilhamentos</span>
+                    <span class="comments">💬 122 comentários</span>
+                    <a href="https://www.google.com/search?q=Entrevistas+por+videoconferência:+Guia+completo+para+2025+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#82</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Catho</span>
+                    <span class="category">Currículo</span>
+                    <span class="date">2025-07-23</span>
+                    
+                </div>
+                <h3 class="title">Reescrevendo currículo para recolocação: Estratégias de sucesso para</h3>
+                <p class="summary">Dicas essenciais sobre reescrevendo currículo para recolocação para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 47,632 visualizações</span>
+                    <span class="shares">📤 476 compartilhamentos</span>
+                    <span class="comments">💬 119 comentários</span>
+                    <a href="https://www.google.com/search?q=Reescrevendo+currículo+para+recolocação:+Estratégias+de+sucesso+para+Catho+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#83</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-23</span>
+                    
+                </div>
+                <h3 class="title">Preparação psicológica para entrevistas: Técnicas infalíveis para</h3>
+                <p class="summary">Artigo completo sobre preparação psicológica para entrevistas com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 47,463 visualizações</span>
+                    <span class="shares">📤 474 compartilhamentos</span>
+                    <span class="comments">💬 118 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+psicológica+para+entrevistas:+Técnicas+infalíveis+para+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#84</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Glassdoor Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-21</span>
+                    
+                </div>
+                <h3 class="title">Preparação para entrevistas comportamentais: Como se destacar em</h3>
+                <p class="summary">Guia prático sobre preparação para entrevistas comportamentais com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 46,668 visualizações</span>
+                    <span class="shares">📤 466 compartilhamentos</span>
+                    <span class="comments">💬 116 comentários</span>
+                    <a href="https://www.google.com/search?q=Preparação+para+entrevistas+comportamentais:+Como+se+destacar+em+Glassdoor+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#85</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Exame Carreira</span>
+                    <span class="category">Processos Seletivos</span>
+                    <span class="date">2025-07-20</span>
+                    
+                </div>
+                <h3 class="title">Dicas para passar em processos seletivos: Melhores práticas em</h3>
+                <p class="summary">Guia prático sobre dicas para passar em processos seletivos com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 49,282 visualizações</span>
+                    <span class="shares">📤 492 compartilhamentos</span>
+                    <span class="comments">💬 123 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+passar+em+processos+seletivos:+Melhores+práticas+em+Exame+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#86</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Vagas.com</span>
+                    <span class="category">LinkedIn</span>
+                    <span class="date">2025-07-20</span>
+                    
+                </div>
+                <h3 class="title">LinkedIn para busca de emprego: Passo a passo para</h3>
+                <p class="summary">Como aplicar técnicas de linkedin para busca de emprego para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 47,026 visualizações</span>
+                    <span class="shares">📤 470 compartilhamentos</span>
+                    <span class="comments">💬 117 comentários</span>
+                    <a href="https://www.google.com/search?q=LinkedIn+para+busca+de+emprego:+Passo+a+passo+para+Vagas.com+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#87</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">LinkedIn Brasil</span>
+                    <span class="category">Networking</span>
+                    <span class="date">2025-07-20</span>
+                    
+                </div>
+                <h3 class="title">Networking para transição de carreira: Melhores práticas em</h3>
+                <p class="summary">Dicas essenciais sobre networking para transição de carreira para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 46,517 visualizações</span>
+                    <span class="shares">📤 465 compartilhamentos</span>
+                    <span class="comments">💬 116 comentários</span>
+                    <a href="https://www.google.com/search?q=Networking+para+transição+de+carreira:+Melhores+práticas+em+LinkedIn+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#88</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Networking</span>
+                    <span class="date">2025-07-20</span>
+                    
+                </div>
+                <h3 class="title">Networking para transição de carreira: Técnicas infalíveis para</h3>
+                <p class="summary">Artigo completo sobre networking para transição de carreira com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 44,492 visualizações</span>
+                    <span class="shares">📤 444 compartilhamentos</span>
+                    <span class="comments">💬 111 comentários</span>
+                    <a href="https://www.google.com/search?q=Networking+para+transição+de+carreira:+Técnicas+infalíveis+para+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#89</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Exame Carreira</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-20</span>
+                    
+                </div>
+                <h3 class="title">Dicas para segunda entrevista: Segredos para conquistar</h3>
+                <p class="summary">Artigo completo sobre dicas para segunda entrevista com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 43,936 visualizações</span>
+                    <span class="shares">📤 439 compartilhamentos</span>
+                    <span class="comments">💬 109 comentários</span>
+                    <a href="https://www.google.com/search?q=Dicas+para+segunda+entrevista:+Segredos+para+conquistar+Exame+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#90</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-19</span>
+                    
+                </div>
+                <h3 class="title">Entrevistas por videoconferência: Guia completo para 2025</h3>
+                <p class="summary">Artigo completo sobre entrevistas por videoconferência com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 48,986 visualizações</span>
+                    <span class="shares">📤 489 compartilhamentos</span>
+                    <span class="comments">💬 122 comentários</span>
+                    <a href="https://www.google.com/search?q=Entrevistas+por+videoconferência:+Guia+completo+para+2025+Portal+RH+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#91</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Negociação</span>
+                    <span class="date">2025-07-19</span>
+                    
+                </div>
+                <h3 class="title">Como negociar salário em nova oportunidade: Como se preparar para</h3>
+                <p class="summary">Estratégias práticas sobre como negociar salário em nova oportunidade adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 44,492 visualizações</span>
+                    <span class="shares">📤 444 compartilhamentos</span>
+                    <span class="comments">💬 111 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+negociar+salário+em+nova+oportunidade:+Como+se+preparar+para+Portal+RH+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#92</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Catho</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-19</span>
+                    
+                </div>
+                <h3 class="title">Como se destacar em entrevistas de emprego: Como se preparar para</h3>
+                <p class="summary">Estratégias práticas sobre como se destacar em entrevistas de emprego adaptadas ao mercado brasileiro atual. Inclui ferramentas e recursos úteis.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 41,288 visualizações</span>
+                    <span class="shares">📤 412 compartilhamentos</span>
+                    <span class="comments">💬 103 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+se+destacar+em+entrevistas+de+emprego:+Como+se+preparar+para+Catho+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#93</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">InfoJobs</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-18</span>
+                    
+                </div>
+                <h3 class="title">Entrevistas por videoconferência: Segredos para conquistar</h3>
+                <p class="summary">Guia prático sobre entrevistas por videoconferência com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 47,315 visualizações</span>
+                    <span class="shares">📤 473 compartilhamentos</span>
+                    <span class="comments">💬 118 comentários</span>
+                    <a href="https://www.google.com/search?q=Entrevistas+por+videoconferência:+Segredos+para+conquistar+InfoJobs+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#94</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">InfoJobs</span>
+                    <span class="category">Transição de Carreira</span>
+                    <span class="date">2025-07-18</span>
+                    
+                </div>
+                <h3 class="title">Mudança de carreira após os 40: Técnicas infalíveis para</h3>
+                <p class="summary">Guia prático sobre mudança de carreira após os 40 com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 47,051 visualizações</span>
+                    <span class="shares">📤 470 compartilhamentos</span>
+                    <span class="comments">💬 117 comentários</span>
+                    <a href="https://www.google.com/search?q=Mudança+de+carreira+após+os+40:+Técnicas+infalíveis+para+InfoJobs+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#95</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Indeed Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-18</span>
+                    
+                </div>
+                <h3 class="title">Entrevistas por videoconferência: Como se destacar em</h3>
+                <p class="summary">Artigo completo sobre entrevistas por videoconferência com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 43,641 visualizações</span>
+                    <span class="shares">📤 436 compartilhamentos</span>
+                    <span class="comments">💬 109 comentários</span>
+                    <a href="https://www.google.com/search?q=Entrevistas+por+videoconferência:+Como+se+destacar+em+Indeed+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#96</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Glassdoor Brasil</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-18</span>
+                    
+                </div>
+                <h3 class="title">Como se destacar em entrevistas de emprego: Como se destacar em</h3>
+                <p class="summary">Como aplicar técnicas de como se destacar em entrevistas de emprego para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 41,774 visualizações</span>
+                    <span class="shares">📤 417 compartilhamentos</span>
+                    <span class="comments">💬 104 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+se+destacar+em+entrevistas+de+emprego:+Como+se+destacar+em+Glassdoor+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#97</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Indeed Brasil</span>
+                    <span class="category">Transição de Carreira</span>
+                    <span class="date">2025-07-18</span>
+                    
+                </div>
+                <h3 class="title">Mudança de carreira após os 40: Como se preparar para</h3>
+                <p class="summary">Guia prático sobre mudança de carreira após os 40 com dicas valiosas para profissionais em transição de carreira. Inclui estratégias testadas e casos reais de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 41,503 visualizações</span>
+                    <span class="shares">📤 415 compartilhamentos</span>
+                    <span class="comments">💬 103 comentários</span>
+                    <a href="https://www.google.com/search?q=Mudança+de+carreira+após+os+40:+Como+se+preparar+para+Indeed+Brasil+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#98</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Exame Carreira</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-17</span>
+                    
+                </div>
+                <h3 class="title">Como se destacar em entrevistas de emprego: Como se preparar para</h3>
+                <p class="summary">Artigo completo sobre como se destacar em entrevistas de emprego com foco em resultados práticos. Especialistas compartilham experiências e metodologias comprovadas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 44,965 visualizações</span>
+                    <span class="shares">📤 449 compartilhamentos</span>
+                    <span class="comments">💬 112 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+se+destacar+em+entrevistas+de+emprego:+Como+se+preparar+para+Exame+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#99</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">LinkedIn</span>
+                    <span class="date">2025-07-17</span>
+                    
+                </div>
+                <h3 class="title">LinkedIn para busca de emprego: Dicas práticas que funcionam</h3>
+                <p class="summary">Dicas essenciais sobre linkedin para busca de emprego para quem busca recolocação profissional. Aborda desafios comuns e soluções eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 44,921 visualizações</span>
+                    <span class="shares">📤 449 compartilhamentos</span>
+                    <span class="comments">💬 112 comentários</span>
+                    <a href="https://www.google.com/search?q=LinkedIn+para+busca+de+emprego:+Dicas+práticas+que+funcionam+Portal+Carreira+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100 ">
+            <div class="rank-badge">#100</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Você S/A</span>
+                    <span class="category">Entrevistas</span>
+                    <span class="date">2025-07-17</span>
+                    
+                </div>
+                <h3 class="title">Como responder perguntas difíceis em entrevistas: Passo a passo para</h3>
+                <p class="summary">Como aplicar técnicas de como responder perguntas difíceis em entrevistas para aumentar suas chances de sucesso em processos seletivos. Baseado em pesquisas recentes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 43,827 visualizações</span>
+                    <span class="shares">📤 438 compartilhamentos</span>
+                    <span class="comments">💬 109 comentários</span>
+                    <a href="https://www.google.com/search?q=Como+responder+perguntas+difíceis+em+entrevistas:+Passo+a+passo+para+Você+S/A+RH" target="_blank" rel="noopener noreferrer" class="search-google">
+                        🔍 Buscar no Google
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+            </div>
+            
+            <div class="sidebar">
+                <h3>📈 Estatísticas por Categoria</h3>
+                
+        <div class="stat-item">
+            <div class="stat-label">Entrevistas</div>
+            <div class="stat-number">44 artigos</div>
+            <div class="stat-views">2,799,331 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Processos Seletivos</div>
+            <div class="stat-number">13 artigos</div>
+            <div class="stat-views">923,262 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Transição de Carreira</div>
+            <div class="stat-number">10 artigos</div>
+            <div class="stat-views">590,601 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Networking</div>
+            <div class="stat-number">10 artigos</div>
+            <div class="stat-views">590,509 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Currículo</div>
+            <div class="stat-number">9 artigos</div>
+            <div class="stat-views">548,863 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">LinkedIn</div>
+            <div class="stat-number">7 artigos</div>
+            <div class="stat-views">443,104 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Negociação</div>
+            <div class="stat-number">5 artigos</div>
+            <div class="stat-views">295,048 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Recrutamento</div>
+            <div class="stat-number">2 artigos</div>
+            <div class="stat-views">150,632 visualizações</div>
+        </div>
+        
+                
+                <h3>📰 Estatísticas por Fonte</h3>
+                
+        <div class="stat-item">
+            <div class="stat-label">Você S/A</div>
+            <div class="stat-number">14 artigos</div>
+            <div class="stat-views">909,486 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Exame Carreira</div>
+            <div class="stat-number">12 artigos</div>
+            <div class="stat-views">740,854 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Glassdoor Brasil</div>
+            <div class="stat-number">11 artigos</div>
+            <div class="stat-views">717,917 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">InfoJobs</div>
+            <div class="stat-number">10 artigos</div>
+            <div class="stat-views">658,753 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Portal RH Brasil</div>
+            <div class="stat-number">11 artigos</div>
+            <div class="stat-views">627,506 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Indeed Brasil</div>
+            <div class="stat-number">9 artigos</div>
+            <div class="stat-views">605,473 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Catho</div>
+            <div class="stat-number">9 artigos</div>
+            <div class="stat-views">546,043 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Portal Carreira</div>
+            <div class="stat-number">8 artigos</div>
+            <div class="stat-views">539,547 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Vagas.com</div>
+            <div class="stat-number">9 artigos</div>
+            <div class="stat-views">536,645 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">LinkedIn Brasil</div>
+            <div class="stat-number">7 artigos</div>
+            <div class="stat-views">459,126 visualizações</div>
+        </div>
+        
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Dados coletados em 2025-08-14 07:02:27 | HR4ALL.com - Recolocação Profissional</p>
+            <p>Notícias coletadas de fontes especializadas em carreira e processos seletivos</p>
+        </div>
+    </div>
+</body>
+</html>
+    

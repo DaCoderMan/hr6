@@ -1,0 +1,57 @@
+===============================================================================
+                    PROPRIETARY SOFTWARE NOTICE
+===============================================================================
+
+PRODUCT: HR News Scraper
+COPYRIGHT: (c) 2025 Workitu Tech, Israel. All Rights Reserved.
+
+This software and all associated files, documentation, and materials are the 
+proprietary and confidential information of Workitu Tech, Israel.
+
+===============================================================================
+                              OWNERSHIP
+===============================================================================
+
+All rights, title, and interest in and to this software, including all 
+intellectual property rights, are and shall remain the exclusive property 
+of Workitu Tech, Israel.
+
+===============================================================================
+                            RESTRICTIONS
+===============================================================================
+
+This software is provided for authorized use only. You may not:
+
+1. Copy, modify, or create derivative works
+2. Reverse engineer, decompile, or disassemble
+3. Distribute, sublicense, or transfer to third parties
+4. Use for commercial purposes without written permission
+5. Remove or alter copyright, trademark, or proprietary notices
+6. Disclose, distribute, or make available to unauthorized parties
+
+===============================================================================
+                            CONFIDENTIALITY
+===============================================================================
+
+This software contains trade secrets and confidential information. You agree 
+to maintain strict confidentiality and not to disclose any part of this 
+software without prior written consent from Workitu Tech, Israel.
+
+===============================================================================
+                              CONTACT
+===============================================================================
+
+For licensing inquiries:
+Workitu Tech, Israel
+Email: legal@workitu.com
+Website: https://workitu.com
+
+===============================================================================
+                            WARNING
+===============================================================================
+
+Unauthorized use, reproduction, or distribution of this software is strictly 
+prohibited and may result in severe civil and criminal penalties under 
+applicable laws.
+
+===============================================================================
