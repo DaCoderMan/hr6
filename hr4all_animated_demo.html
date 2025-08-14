@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR4AL.co - Recolocação Profissional - Demo Animado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Advanced Animated Background */
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e, #0f3460, #533483);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Geometric Shapes Animation */
+        .geometric-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: floatShape 15s infinite linear;
+        }
+        
+        .shape.triangle {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 35px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .shape.circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .shape.square {
+            width: 25px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+        }
+        
+        .shape:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 20s; }
+        .shape:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 25s; }
+        .shape:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 18s; }
+        .shape:nth-child(4) { left: 40%; animation-delay: 6s; animation-duration: 22s; }
+        .shape:nth-child(5) { left: 50%; animation-delay: 8s; animation-duration: 30s; }
+        .shape:nth-child(6) { left: 60%; animation-delay: 10s; animation-duration: 16s; }
+        .shape:nth-child(7) { left: 70%; animation-delay: 12s; animation-duration: 28s; }
+        .shape:nth-child(8) { left: 80%; animation-delay: 14s; animation-duration: 24s; }
+        .shape:nth-child(9) { left: 90%; animation-delay: 16s; animation-duration: 26s; }
+        .shape:nth-child(10) { left: 95%; animation-delay: 18s; animation-duration: 19s; }
+        
+        @keyframes floatShape {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.1;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: floatParticle 25s infinite linear;
+        }
+        
+        .particle:nth-child(1) { left: 5%; animation-delay: 0s; animation-duration: 30s; }
+        .particle:nth-child(2) { left: 15%; animation-delay: 3s; animation-duration: 35s; }
+        .particle:nth-child(3) { left: 25%; animation-delay: 6s; animation-duration: 28s; }
+        .particle:nth-child(4) { left: 35%; animation-delay: 9s; animation-duration: 32s; }
+        .particle:nth-child(5) { left: 45%; animation-delay: 12s; animation-duration: 40s; }
+        .particle:nth-child(6) { left: 55%; animation-delay: 15s; animation-duration: 26s; }
+        .particle:nth-child(7) { left: 65%; animation-delay: 18s; animation-duration: 38s; }
+        .particle:nth-child(8) { left: 75%; animation-delay: 21s; animation-duration: 29s; }
+        .particle:nth-child(9) { left: 85%; animation-delay: 24s; animation-duration: 33s; }
+        .particle:nth-child(10) { left: 95%; animation-delay: 27s; animation-duration: 31s; }
+        
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.2;
+                transform: translateY(90vh) scale(1);
+            }
+            90% {
+                opacity: 0.2;
+                transform: translateY(10vh) scale(1);
+            }
+            100% {
+                transform: translateY(-50px) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        /* HR4AL Logo with Advanced Animation */
+        .hr4al-logo {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 20px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: logoGlow 4s ease-in-out infinite alternate;
+            transition: all 0.3s ease;
+        }
+        
+        .hr4al-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+        }
+        
+        .hr4al-logo h1 {
+            color: #fff;
+            font-size: 2.2em;
+            font-weight: bold;
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+            margin: 0;
+            background: linear-gradient(45deg, #fff, #667eea, #764ba2);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGradient 3s ease infinite;
+        }
+        
+        @keyframes textGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hr4al-logo .tagline {
+            color: #ccc;
+            font-size: 1em;
+            margin-top: 8px;
+            opacity: 0.9;
+            text-align: center;
+        }
+        
+        @keyframes logoGlow {
+            0% { 
+                box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+                border-color: rgba(255, 255, 255, 0.2);
+            }
+            100% { 
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+                border-color: rgba(255, 255, 255, 0.5);
+            }
+        }
+        
+        /* Main Content */
+        .main-content {
+            position: relative;
+            z-index: 1;
+            padding: 120px 40px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .hero-title {
+            font-size: 4em;
+            font-weight: 300;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
+            100% { text-shadow: 0 0 50px rgba(255, 255, 255, 0.6); }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5em;
+            color: #ccc;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .feature-title {
+            color: #fff;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .feature-description {
+            color: #ccc;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* Interactive Elements */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2em;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2em;
+            }
+            
+            .hr4al-logo {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin: 20px auto;
+                display: block;
+                width: fit-content;
+            }
+            
+            .main-content {
+                padding: 80px 20px 40px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeOut 2s ease-in-out 3s forwards;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <!-- Animated Background -->
+    <div class="animated-background"></div>
+    
+    <!-- Geometric Shapes -->
+    <div class="geometric-shapes">
+        <div class="shape triangle"></div>
+        <div class="shape circle"></div>
+        <div class="shape square"></div>
+        <div class="shape triangle"></div>
+        <div class="shape circle"></div>
+        <div class="shape square"></div>
+        <div class="shape triangle"></div>
+        <div class="shape circle"></div>
+        <div class="shape square"></div>
+        <div class="shape triangle"></div>
+    </div>
+    
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    
+    <!-- HR4AL Logo -->
+    <div class="hr4al-logo">
+        <h1>HR4AL.co</h1>
+        <div class="tagline">Recolocação Profissional</div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="hero-section">
+            <h1 class="hero-title">Transforme Sua Carreira</h1>
+            <p class="hero-subtitle">Descubra as melhores estratégias para recolocação profissional, entrevistas e processos seletivos</p>
+            
+            <a href="#" class="cta-button">Começar Agora</a>
+            <a href="#" class="cta-button">Ver Dicas</a>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🎯</span>
+                <h3 class="feature-title">Entrevistas</h3>
+                <p class="feature-description">Aprenda técnicas comprovadas para se destacar em entrevistas de emprego e comportamentais.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">📝</span>
+                <h3 class="feature-title">Currículo</h3>
+                <p class="feature-description">Dicas para criar um currículo que chama atenção e passa pelos filtros de ATS.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🤝</span>
+                <h3 class="feature-title">Networking</h3>
+                <p class="feature-description">Estratégias eficazes para construir uma rede profissional forte e ativa.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">💼</span>
+                <h3 class="feature-title">Processos Seletivos</h3>
+                <p class="feature-description">Como navegar por diferentes tipos de processos seletivos e dinâmicas de grupo.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🧠</span>
+                <h3 class="feature-title">Preparação Psicológica</h3>
+                <p class="feature-description">Técnicas para manter a calma e confiança durante todo o processo de seleção.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🚀</span>
+                <h3 class="feature-title">Transição de Carreira</h3>
+                <p class="feature-description">Guia completo para mudar de área ou setor com sucesso e confiança.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add mouse movement effect to particles
+            document.addEventListener('mousemove', function(e) {
+                const particles = document.querySelectorAll('.particle');
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                particles.forEach((particle, index) => {
+                    const speed = (index + 1) * 0.5;
+                    particle.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+                });
+            });
+            
+            // Add click effect to feature cards
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-10px)';
+                    }, 150);
+                });
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
