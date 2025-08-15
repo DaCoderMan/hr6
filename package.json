@@ -1,0 +1,38 @@
+{
+  "name": "hr4al-co",
+  "version": "1.0.0",
+  "description": "HR4AL.co - Sistema de web scraping para recolocação profissional",
+  "type": "module",
+  "main": "api/index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build",
+    "deploy": "vercel --prod",
+    "start": "node api/index.js",
+    "test": "node test_logging.js"
+  },
+  "keywords": [
+    "hr",
+    "news",
+    "scraper",
+    "vercel",
+    "api",
+    "python",
+    "recolocacao",
+    "carreira"
+  ],
+  "author": "Workitu Tech, Israel",
+  "license": "PROPRIETARY",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  },
+  "private": true
+}

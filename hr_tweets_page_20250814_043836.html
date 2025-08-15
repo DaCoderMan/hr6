@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top HR Tweets - Brasil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .stats {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        .tweets-section {
+            padding: 30px;
+        }
+        
+        .tweets-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .tweet-item {
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .tweet-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .tweet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tweet-number {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .tweet-username {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+        
+        .tweet-stats {
+            font-size: 0.9em;
+            color: #6c757d;
+            background: #f8f9fa;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        
+        .tweet-text {
+            margin: 15px 0;
+            color: #333;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        
+        .tweet-footer {
+            margin-top: 15px;
+        }
+        
+        .tweet-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 2px solid #667eea;
+            border-radius: 20px;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+        
+        .tweet-link:hover {
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #6c757d;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .tweet-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Top HR Tweets - Brasil</h1>
+            <p>Os tweets mais populares sobre Recursos Humanos no momento</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Tweets Analisados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">11,293</div>
+                    <div class="stat-label">Total de Likes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1,749</div>
+                    <div class="stat-label">Total de Comentários</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2,345</div>
+                    <div class="stat-label">Mais Likes (1º lugar)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tweets-section">
+            <h2>📊 Ranking por Engajamento</h2>
+            
+        <div class="tweet-item">
+            <div class="tweet-header">
+                <span class="tweet-number">#1</span>
+                <span class="tweet-username">@rh_brasil</span>
+                <span class="tweet-stats">
+                    ❤️ 2,345 | 💬 567
+                </span>
+            </div>
+            <div class="tweet-text">Dicas essenciais para gestão de pessoas em 2024! 📈 #RH #GestãoDePessoas</div>
+            <div class="tweet-footer">
+                <a href="https://x.com/rh_brasil/status/123456789" class="tweet-link" target="_blank">Ver no X →</a>
+            </div>
+        </div>
+        
+        <div class="tweet-item">
+            <div class="tweet-header">
+                <span class="tweet-number">#2</span>
+                <span class="tweet-username">@recursos_humanos_br</span>
+                <span class="tweet-stats">
+                    ❤️ 1,890 | 💬 234
+                </span>
+            </div>
+            <div class="tweet-text">Como reter talentos em tempos de alta rotatividade? Veja as estratégias que estão funcionando nas melhores empresas do Brasil.</div>
+            <div class="tweet-footer">
+                <a href="https://x.com/recursos_humanos_br/status/987654321" class="tweet-link" target="_blank">Ver no X →</a>
+            </div>
+        </div>
+        
+        <div class="tweet-item">
+            <div class="tweet-header">
+                <span class="tweet-number">#3</span>
+                <span class="tweet-username">@rh_startup_br</span>
+                <span class="tweet-stats">
+                    ❤️ 1,567 | 💬 123
+                </span>
+            </div>
+            <div class="tweet-text">Nossa empresa implementou home office híbrido e a satisfação dos funcionários aumentou 40%! 🏠💼 #Flexibilidade #Produtividade</div>
+            <div class="tweet-footer">
+                <a href="https://x.com/rh_startup_br/status/456789123" class="tweet-link" target="_blank">Ver no X →</a>
+            </div>
+        </div>
+        
+        <div class="tweet-item">
+            <div class="tweet-header">
+                <span class="tweet-number">#4</span>
+                <span class="tweet-username">@gestao_pessoas_br</span>
+                <span class="tweet-stats">
+                    ❤️ 1,234 | 💬 89
+                </span>
+            </div>
+            <div class="tweet-text">5 tendências de RH para 2024 que você precisa conhecer! 🚀 #Tendências #Inovação</div>
+            <div class="tweet-footer">
+                <a href="https://x.com/gestao_pessoas_br/status/789123456" class="tweet-link" target="_blank">Ver no X →</a>
+            </div>
+        </div>
+        
+        <div class="tweet-item">
+            <div class="tweet-header">
+                <span class="tweet-number">#5</span>
+                <span class="tweet-username">@recrutamento_br</span>
+                <span class="tweet-stats">
+                    ❤️ 987 | 💬 156
+                </span>
+            </div>
+            <div class="tweet-text">Processo seletivo digital: como otimizar e melhorar a experiência do candidato em cada etapa.</div>
+            <div class="tweet-footer">
+                <a href="https://x.com/recrutamento_br/status/321654987" class="tweet-link" target="_blank">Ver no X →</a>
+            </div>
+        </div>
+        
+        <div class="tweet-item">
+            <div class="tweet-header">
+                <span class="tweet-number">#6</span>
+                <span class="tweet-username">@treinamento_rh</span>
+                <span class="tweet-stats">
+                    ❤️ 876 | 💬 98
+                </span>
+            </div>
+            <div class="tweet-text">Programa de desenvolvimento de lideranças: investir em pessoas é investir no futuro da empresa! 💪</div>
+            <div class="tweet-footer">
+                <a href="https://x.com/treinamento_rh/status/654321987" class="tweet-link" target="_blank">Ver no X →</a>
+            </div>
+        </div>
+        
+        <div class="tweet-item">
+            <div class="tweet-header">
+                <span class="tweet-number">#7</span>
+                <span class="tweet-username">@beneficios_br</span>
+                <span class="tweet-stats">
+                    ❤️ 765 | 💬 145
+                </span>
+            </div>
+            <div class="tweet-text">Benefícios flexíveis: a nova tendência que está revolucionando o mercado de trabalho brasileiro.</div>
+            <div class="tweet-footer">
+                <a href="https://x.com/beneficios_br/status/987654321" class="tweet-link" target="_blank">Ver no X →</a>
+            </div>
+        </div>
+        
+        <div class="tweet-item">
+            <div class="tweet-header">
+                <span class="tweet-number">#8</span>
+                <span class="tweet-username">@diversidade_rh</span>
+                <span class="tweet-stats">
+                    ❤️ 654 | 💬 167
+                </span>
+            </div>
+            <div class="tweet-text">Diversidade e inclusão não são apenas tendências, são essenciais para o sucesso empresarial! 🌈</div>
+            <div class="tweet-footer">
+                <a href="https://x.com/diversidade_rh/status/123789456" class="tweet-link" target="_blank">Ver no X →</a>
+            </div>
+        </div>
+        
+        <div class="tweet-item">
+            <div class="tweet-header">
+                <span class="tweet-number">#9</span>
+                <span class="tweet-username">@clima_organizacional</span>
+                <span class="tweet-stats">
+                    ❤️ 543 | 💬 78
+                </span>
+            </div>
+            <div class="tweet-text">Pesquisa de clima organizacional: descubra como medir e melhorar a satisfação dos seus colaboradores.</div>
+            <div class="tweet-footer">
+                <a href="https://x.com/clima_organizacional/status/456123789" class="tweet-link" target="_blank">Ver no X →</a>
+            </div>
+        </div>
+        
+        <div class="tweet-item">
+            <div class="tweet-header">
+                <span class="tweet-number">#10</span>
+                <span class="tweet-username">@carreira_rh</span>
+                <span class="tweet-stats">
+                    ❤️ 432 | 💬 92
+                </span>
+            </div>
+            <div class="tweet-text">Plano de carreira: como estruturar e implementar na sua empresa para reter os melhores talentos.</div>
+            <div class="tweet-footer">
+                <a href="https://x.com/carreira_rh/status/789456123" class="tweet-link" target="_blank">Ver no X →</a>
+            </div>
+        </div>
+        
+        </div>
+        
+        <div class="footer">
+            <p>Gerado em 14/08/2025 às 04:38 | Grok HR Tweets Searcher</p>
+        </div>
+    </div>
+</body>
+</html>
+    

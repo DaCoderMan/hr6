@@ -1,0 +1,2285 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 100 Notícias de RH - Mais Visualizadas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .stats-overview {
+            background: #f8f9fa;
+            padding: 30px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+        
+        .news-section {
+            background: white;
+        }
+        
+        .news-section h2 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .news-item {
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            background: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        
+        .news-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        
+        .news-item.top-10 {
+            border-left: 5px solid #28a745;
+            background: linear-gradient(135deg, #f8fff9 0%, #ffffff 100%);
+        }
+        
+        .news-item.top-50 {
+            border-left: 5px solid #ffc107;
+        }
+        
+        .news-item.top-100 {
+            border-left: 5px solid #6c757d;
+        }
+        
+        .rank-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #667eea;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .source {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+        
+        .category {
+            background: #e9ecef;
+            color: #495057;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .date {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        .title {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .summary {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        
+        .engagement {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .engagement span {
+            font-size: 0.95em;
+            color: #6c757d;
+            background: #f8f9fa;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .sidebar {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            height: fit-content;
+        }
+        
+        .sidebar h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .stat-label {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .stat-number {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .stat-views {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 25px;
+            text-align: center;
+            color: #6c757d;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        @media (max-width: 1200px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .news-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .engagement {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Top 100 Notícias de RH</h1>
+            <p>As notícias mais visualizadas sobre Recursos Humanos no Brasil</p>
+            <p>Ranking baseado em visualizações, compartilhamentos e engajamento</p>
+        </div>
+        
+        <div class="stats-overview">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">1,680,591</div>
+                    <div class="stat-label">Total de Visualizações</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">45,393</div>
+                    <div class="stat-label">Total de Compartilhamentos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7,515</div>
+                    <div class="stat-label">Total de Comentários</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">16,805</div>
+                    <div class="stat-label">Média de Visualizações</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="news-section">
+                <h2>🏆 Ranking das Notícias</h2>
+                
+        <div class="news-item top-10">
+            <div class="rank-badge">#1</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Legislação</span>
+                    <span class="date">2024-01-15</span>
+                </div>
+                <h3 class="title">Nova legislação trabalhista revoluciona gestão de RH em 2024</h3>
+                <p class="summary">Mudanças profundas na CLT exigem transformação completa dos processos de recursos humanos. Especialistas apontam principais impactos e estratégias de adaptação.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 125,847 visualizações</span>
+                    <span class="shares">📤 8,923 compartilhamentos</span>
+                    <span class="comments">💬 1,247 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10">
+            <div class="rank-badge">#2</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Revista RH</span>
+                    <span class="category">Tecnologia</span>
+                    <span class="date">2024-01-14</span>
+                </div>
+                <h3 class="title">IA e automação transformam recrutamento: 85% das empresas já usam</h3>
+                <p class="summary">Inteligência artificial e automação estão revolucionando como as empresas contratam e gerenciam talentos. Veja as principais tendências e ferramentas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 98,756 visualizações</span>
+                    <span class="shares">📤 6,543 compartilhamentos</span>
+                    <span class="comments">💬 892 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10">
+            <div class="rank-badge">#3</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Brasil</span>
+                    <span class="category">Trabalho Remoto</span>
+                    <span class="date">2024-01-13</span>
+                </div>
+                <h3 class="title">Home office híbrido: produtividade aumenta 40% em empresas brasileiras</h3>
+                <p class="summary">Estudo revela que modelo híbrido aumenta produtividade e satisfação dos funcionários. Empresas compartilham estratégias de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 87,654 visualizações</span>
+                    <span class="shares">📤 5,432 compartilhamentos</span>
+                    <span class="comments">💬 765 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10">
+            <div class="rank-badge">#4</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão RH</span>
+                    <span class="category">Benefícios</span>
+                    <span class="date">2024-01-12</span>
+                </div>
+                <h3 class="title">Benefícios flexíveis são tendência: 92% dos profissionais preferem</h3>
+                <p class="summary">Empresas adotam benefícios personalizados para atrair e reter talentos. Pesquisa mostra preferências da nova geração.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 76,543 visualizações</span>
+                    <span class="shares">📤 4,321 compartilhamentos</span>
+                    <span class="comments">💬 654 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10">
+            <div class="rank-badge">#5</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Digital</span>
+                    <span class="category">Diversidade</span>
+                    <span class="date">2024-01-11</span>
+                </div>
+                <h3 class="title">Diversidade e inclusão: empresas com equipes diversas têm 35% mais lucro</h3>
+                <p class="summary">Pesquisa global revela que empresas com equipes diversas têm melhor performance financeira e inovação.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 65,432 visualizações</span>
+                    <span class="shares">📤 3,456 compartilhamentos</span>
+                    <span class="comments">💬 543 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10">
+            <div class="rank-badge">#6</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH</span>
+                    <span class="category">Gerações</span>
+                    <span class="date">2024-01-10</span>
+                </div>
+                <h3 class="title">Geração Z no trabalho: como adaptar processos de RH</h3>
+                <p class="summary">Nova geração exige mudanças nos processos de recrutamento, treinamento e gestão. Especialistas compartilham estratégias.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 54,321 visualizações</span>
+                    <span class="shares">📤 2,345 compartilhamentos</span>
+                    <span class="comments">💬 432 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10">
+            <div class="rank-badge">#7</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Revista RH</span>
+                    <span class="category">Bem-estar</span>
+                    <span class="date">2024-01-09</span>
+                </div>
+                <h3 class="title">Bem-estar corporativo: programas reduzem absenteísmo em 60%</h3>
+                <p class="summary">Empresas que investem em bem-estar corporativo veem redução significativa no absenteísmo e aumento na produtividade.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 43,210 visualizações</span>
+                    <span class="shares">📤 1,234 compartilhamentos</span>
+                    <span class="comments">💬 321 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10">
+            <div class="rank-badge">#8</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Brasil</span>
+                    <span class="category">Treinamento</span>
+                    <span class="date">2024-01-08</span>
+                </div>
+                <h3 class="title">Treinamento corporativo: e-learning cresce 200% no Brasil</h3>
+                <p class="summary">Modalidade online de treinamento corporativo registra crescimento recorde. Plataformas e metodologias mais eficazes.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 32,109 visualizações</span>
+                    <span class="shares">📤 987 compartilhamentos</span>
+                    <span class="comments">💬 210 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10">
+            <div class="rank-badge">#9</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão RH</span>
+                    <span class="category">Retenção</span>
+                    <span class="date">2024-01-07</span>
+                </div>
+                <h3 class="title">Retenção de talentos: estratégias que funcionam em 2024</h3>
+                <p class="summary">Como reter os melhores profissionais em um mercado competitivo. Estratégias comprovadas de empresas de sucesso.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 21,098 visualizações</span>
+                    <span class="shares">📤 876 compartilhamentos</span>
+                    <span class="comments">💬 198 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-10">
+            <div class="rank-badge">#10</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Digital</span>
+                    <span class="category">Remuneração</span>
+                    <span class="date">2024-01-06</span>
+                </div>
+                <h3 class="title">Salários de RH: remuneração média aumenta 15% em 2024</h3>
+                <p class="summary">Profissionais de recursos humanos registram aumento significativo na remuneração. Dados por região e experiência.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 19,876 visualizações</span>
+                    <span class="shares">📤 765 compartilhamentos</span>
+                    <span class="comments">💬 187 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#11</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Revista RH</span>
+                    <span class="category">Gestão</span>
+                    <span class="date">2024-01-14</span>
+                </div>
+                <h3 class="title">Como implementar gestão com sucesso</h3>
+                <p class="summary">Artigo sobre gestão com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 18,361 visualizações</span>
+                    <span class="shares">📤 183 compartilhamentos</span>
+                    <span class="comments">💬 36 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#12</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Brasil</span>
+                    <span class="category">Liderança</span>
+                    <span class="date">2024-01-14</span>
+                </div>
+                <h3 class="title">Novas tecnologias revolucionam liderança</h3>
+                <p class="summary">Artigo sobre liderança com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 18,212 visualizações</span>
+                    <span class="shares">📤 182 compartilhamentos</span>
+                    <span class="comments">💬 36 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#13</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão RH</span>
+                    <span class="category">Cultura</span>
+                    <span class="date">2024-01-14</span>
+                </div>
+                <h3 class="title">Estratégias inovadoras para cultura</h3>
+                <p class="summary">Artigo sobre cultura com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 18,063 visualizações</span>
+                    <span class="shares">📤 180 compartilhamentos</span>
+                    <span class="comments">💬 36 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#14</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Digital</span>
+                    <span class="category">Inovação</span>
+                    <span class="date">2024-01-13</span>
+                </div>
+                <h3 class="title">O futuro do inovação no Brasil</h3>
+                <p class="summary">Artigo sobre inovação com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 17,914 visualizações</span>
+                    <span class="shares">📤 179 compartilhamentos</span>
+                    <span class="comments">💬 35 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#15</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Legislação</span>
+                    <span class="date">2024-01-13</span>
+                </div>
+                <h3 class="title">Melhores práticas em legislação</h3>
+                <p class="summary">Artigo sobre legislação com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 17,765 visualizações</span>
+                    <span class="shares">📤 177 compartilhamentos</span>
+                    <span class="comments">💬 35 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#16</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Online</span>
+                    <span class="category">Tecnologia</span>
+                    <span class="date">2024-01-13</span>
+                </div>
+                <h3 class="title">Transformação digital no tecnologia</h3>
+                <p class="summary">Artigo sobre tecnologia com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 17,616 visualizações</span>
+                    <span class="shares">📤 176 compartilhamentos</span>
+                    <span class="comments">💬 35 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#17</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão de Pessoas</span>
+                    <span class="category">Trabalho Remoto</span>
+                    <span class="date">2024-01-13</span>
+                </div>
+                <h3 class="title">Cases de sucesso em trabalho remoto</h3>
+                <p class="summary">Artigo sobre trabalho remoto com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 17,467 visualizações</span>
+                    <span class="shares">📤 174 compartilhamentos</span>
+                    <span class="comments">💬 34 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#18</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH News</span>
+                    <span class="category">Benefícios</span>
+                    <span class="date">2024-01-13</span>
+                </div>
+                <h3 class="title">Desafios e oportunidades do benefícios</h3>
+                <p class="summary">Artigo sobre benefícios com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 17,318 visualizações</span>
+                    <span class="shares">📤 173 compartilhamentos</span>
+                    <span class="comments">💬 34 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#19</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Trends</span>
+                    <span class="category">Diversidade</span>
+                    <span class="date">2024-01-13</span>
+                </div>
+                <h3 class="title">Guia completo sobre diversidade</h3>
+                <p class="summary">Artigo sobre diversidade com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 17,169 visualizações</span>
+                    <span class="shares">📤 171 compartilhamentos</span>
+                    <span class="comments">💬 34 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#20</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Gerações</span>
+                    <span class="date">2024-01-13</span>
+                </div>
+                <h3 class="title">Tendências de RH que dominarão 2026</h3>
+                <p class="summary">Artigo sobre gerações com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 17,020 visualizações</span>
+                    <span class="shares">📤 170 compartilhamentos</span>
+                    <span class="comments">💬 34 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#21</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Revista RH</span>
+                    <span class="category">Bem-estar</span>
+                    <span class="date">2024-01-12</span>
+                </div>
+                <h3 class="title">Como implementar bem-estar com sucesso</h3>
+                <p class="summary">Artigo sobre bem-estar com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 16,871 visualizações</span>
+                    <span class="shares">📤 168 compartilhamentos</span>
+                    <span class="comments">💬 33 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#22</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Brasil</span>
+                    <span class="category">Treinamento</span>
+                    <span class="date">2024-01-12</span>
+                </div>
+                <h3 class="title">Novas tecnologias revolucionam treinamento</h3>
+                <p class="summary">Artigo sobre treinamento com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 16,722 visualizações</span>
+                    <span class="shares">📤 167 compartilhamentos</span>
+                    <span class="comments">💬 33 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#23</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão RH</span>
+                    <span class="category">Retenção</span>
+                    <span class="date">2024-01-12</span>
+                </div>
+                <h3 class="title">Estratégias inovadoras para retenção</h3>
+                <p class="summary">Artigo sobre retenção com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 16,573 visualizações</span>
+                    <span class="shares">📤 165 compartilhamentos</span>
+                    <span class="comments">💬 33 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#24</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Digital</span>
+                    <span class="category">Remuneração</span>
+                    <span class="date">2024-01-12</span>
+                </div>
+                <h3 class="title">O futuro do remuneração no Brasil</h3>
+                <p class="summary">Artigo sobre remuneração com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 16,424 visualizações</span>
+                    <span class="shares">📤 164 compartilhamentos</span>
+                    <span class="comments">💬 32 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#25</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Recrutamento</span>
+                    <span class="date">2024-01-12</span>
+                </div>
+                <h3 class="title">Melhores práticas em recrutamento</h3>
+                <p class="summary">Artigo sobre recrutamento com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 16,275 visualizações</span>
+                    <span class="shares">📤 162 compartilhamentos</span>
+                    <span class="comments">💬 32 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#26</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Online</span>
+                    <span class="category">Gestão</span>
+                    <span class="date">2024-01-12</span>
+                </div>
+                <h3 class="title">Transformação digital no gestão</h3>
+                <p class="summary">Artigo sobre gestão com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 16,126 visualizações</span>
+                    <span class="shares">📤 161 compartilhamentos</span>
+                    <span class="comments">💬 32 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#27</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão de Pessoas</span>
+                    <span class="category">Liderança</span>
+                    <span class="date">2024-01-12</span>
+                </div>
+                <h3 class="title">Cases de sucesso em liderança</h3>
+                <p class="summary">Artigo sobre liderança com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 15,977 visualizações</span>
+                    <span class="shares">📤 159 compartilhamentos</span>
+                    <span class="comments">💬 31 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#28</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH News</span>
+                    <span class="category">Cultura</span>
+                    <span class="date">2024-01-11</span>
+                </div>
+                <h3 class="title">Desafios e oportunidades do cultura</h3>
+                <p class="summary">Artigo sobre cultura com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 15,828 visualizações</span>
+                    <span class="shares">📤 158 compartilhamentos</span>
+                    <span class="comments">💬 31 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#29</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Trends</span>
+                    <span class="category">Inovação</span>
+                    <span class="date">2024-01-11</span>
+                </div>
+                <h3 class="title">Guia completo sobre inovação</h3>
+                <p class="summary">Artigo sobre inovação com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 15,679 visualizações</span>
+                    <span class="shares">📤 156 compartilhamentos</span>
+                    <span class="comments">💬 31 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#30</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Legislação</span>
+                    <span class="date">2024-01-11</span>
+                </div>
+                <h3 class="title">Tendências de RH que dominarão 2024</h3>
+                <p class="summary">Artigo sobre legislação com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 15,530 visualizações</span>
+                    <span class="shares">📤 155 compartilhamentos</span>
+                    <span class="comments">💬 31 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#31</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Revista RH</span>
+                    <span class="category">Tecnologia</span>
+                    <span class="date">2024-01-11</span>
+                </div>
+                <h3 class="title">Como implementar tecnologia com sucesso</h3>
+                <p class="summary">Artigo sobre tecnologia com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 15,381 visualizações</span>
+                    <span class="shares">📤 153 compartilhamentos</span>
+                    <span class="comments">💬 30 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#32</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Brasil</span>
+                    <span class="category">Trabalho Remoto</span>
+                    <span class="date">2024-01-11</span>
+                </div>
+                <h3 class="title">Novas tecnologias revolucionam trabalho remoto</h3>
+                <p class="summary">Artigo sobre trabalho remoto com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 15,232 visualizações</span>
+                    <span class="shares">📤 152 compartilhamentos</span>
+                    <span class="comments">💬 30 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#33</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão RH</span>
+                    <span class="category">Benefícios</span>
+                    <span class="date">2024-01-11</span>
+                </div>
+                <h3 class="title">Estratégias inovadoras para benefícios</h3>
+                <p class="summary">Artigo sobre benefícios com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 15,083 visualizações</span>
+                    <span class="shares">📤 150 compartilhamentos</span>
+                    <span class="comments">💬 30 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#34</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Digital</span>
+                    <span class="category">Diversidade</span>
+                    <span class="date">2024-01-11</span>
+                </div>
+                <h3 class="title">O futuro do diversidade no Brasil</h3>
+                <p class="summary">Artigo sobre diversidade com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 14,934 visualizações</span>
+                    <span class="shares">📤 149 compartilhamentos</span>
+                    <span class="comments">💬 29 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#35</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Gerações</span>
+                    <span class="date">2024-01-10</span>
+                </div>
+                <h3 class="title">Melhores práticas em gerações</h3>
+                <p class="summary">Artigo sobre gerações com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 14,785 visualizações</span>
+                    <span class="shares">📤 147 compartilhamentos</span>
+                    <span class="comments">💬 29 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#36</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Online</span>
+                    <span class="category">Bem-estar</span>
+                    <span class="date">2024-01-10</span>
+                </div>
+                <h3 class="title">Transformação digital no bem-estar</h3>
+                <p class="summary">Artigo sobre bem-estar com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 14,636 visualizações</span>
+                    <span class="shares">📤 146 compartilhamentos</span>
+                    <span class="comments">💬 29 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#37</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão de Pessoas</span>
+                    <span class="category">Treinamento</span>
+                    <span class="date">2024-01-10</span>
+                </div>
+                <h3 class="title">Cases de sucesso em treinamento</h3>
+                <p class="summary">Artigo sobre treinamento com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 14,487 visualizações</span>
+                    <span class="shares">📤 144 compartilhamentos</span>
+                    <span class="comments">💬 28 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#38</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH News</span>
+                    <span class="category">Retenção</span>
+                    <span class="date">2024-01-10</span>
+                </div>
+                <h3 class="title">Desafios e oportunidades do retenção</h3>
+                <p class="summary">Artigo sobre retenção com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 14,338 visualizações</span>
+                    <span class="shares">📤 143 compartilhamentos</span>
+                    <span class="comments">💬 28 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#39</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Trends</span>
+                    <span class="category">Remuneração</span>
+                    <span class="date">2024-01-10</span>
+                </div>
+                <h3 class="title">Guia completo sobre remuneração</h3>
+                <p class="summary">Artigo sobre remuneração com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 14,189 visualizações</span>
+                    <span class="shares">📤 141 compartilhamentos</span>
+                    <span class="comments">💬 28 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#40</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Recrutamento</span>
+                    <span class="date">2024-01-10</span>
+                </div>
+                <h3 class="title">Tendências de RH que dominarão 2025</h3>
+                <p class="summary">Artigo sobre recrutamento com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 14,040 visualizações</span>
+                    <span class="shares">📤 140 compartilhamentos</span>
+                    <span class="comments">💬 28 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#41</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Revista RH</span>
+                    <span class="category">Gestão</span>
+                    <span class="date">2024-01-10</span>
+                </div>
+                <h3 class="title">Como implementar gestão com sucesso</h3>
+                <p class="summary">Artigo sobre gestão com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 13,891 visualizações</span>
+                    <span class="shares">📤 138 compartilhamentos</span>
+                    <span class="comments">💬 27 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#42</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Brasil</span>
+                    <span class="category">Liderança</span>
+                    <span class="date">2024-01-9</span>
+                </div>
+                <h3 class="title">Novas tecnologias revolucionam liderança</h3>
+                <p class="summary">Artigo sobre liderança com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 13,742 visualizações</span>
+                    <span class="shares">📤 137 compartilhamentos</span>
+                    <span class="comments">💬 27 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#43</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão RH</span>
+                    <span class="category">Cultura</span>
+                    <span class="date">2024-01-9</span>
+                </div>
+                <h3 class="title">Estratégias inovadoras para cultura</h3>
+                <p class="summary">Artigo sobre cultura com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 13,593 visualizações</span>
+                    <span class="shares">📤 135 compartilhamentos</span>
+                    <span class="comments">💬 27 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#44</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Digital</span>
+                    <span class="category">Inovação</span>
+                    <span class="date">2024-01-9</span>
+                </div>
+                <h3 class="title">O futuro do inovação no Brasil</h3>
+                <p class="summary">Artigo sobre inovação com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 13,444 visualizações</span>
+                    <span class="shares">📤 134 compartilhamentos</span>
+                    <span class="comments">💬 26 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#45</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Legislação</span>
+                    <span class="date">2024-01-9</span>
+                </div>
+                <h3 class="title">Melhores práticas em legislação</h3>
+                <p class="summary">Artigo sobre legislação com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 13,295 visualizações</span>
+                    <span class="shares">📤 132 compartilhamentos</span>
+                    <span class="comments">💬 26 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#46</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Online</span>
+                    <span class="category">Tecnologia</span>
+                    <span class="date">2024-01-9</span>
+                </div>
+                <h3 class="title">Transformação digital no tecnologia</h3>
+                <p class="summary">Artigo sobre tecnologia com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 13,146 visualizações</span>
+                    <span class="shares">📤 131 compartilhamentos</span>
+                    <span class="comments">💬 26 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#47</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão de Pessoas</span>
+                    <span class="category">Trabalho Remoto</span>
+                    <span class="date">2024-01-9</span>
+                </div>
+                <h3 class="title">Cases de sucesso em trabalho remoto</h3>
+                <p class="summary">Artigo sobre trabalho remoto com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 12,997 visualizações</span>
+                    <span class="shares">📤 129 compartilhamentos</span>
+                    <span class="comments">💬 25 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#48</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH News</span>
+                    <span class="category">Benefícios</span>
+                    <span class="date">2024-01-9</span>
+                </div>
+                <h3 class="title">Desafios e oportunidades do benefícios</h3>
+                <p class="summary">Artigo sobre benefícios com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 12,848 visualizações</span>
+                    <span class="shares">📤 128 compartilhamentos</span>
+                    <span class="comments">💬 25 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#49</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Trends</span>
+                    <span class="category">Diversidade</span>
+                    <span class="date">2024-01-8</span>
+                </div>
+                <h3 class="title">Guia completo sobre diversidade</h3>
+                <p class="summary">Artigo sobre diversidade com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 12,699 visualizações</span>
+                    <span class="shares">📤 126 compartilhamentos</span>
+                    <span class="comments">💬 25 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-50">
+            <div class="rank-badge">#50</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Gerações</span>
+                    <span class="date">2024-01-8</span>
+                </div>
+                <h3 class="title">Tendências de RH que dominarão 2026</h3>
+                <p class="summary">Artigo sobre gerações com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 12,550 visualizações</span>
+                    <span class="shares">📤 125 compartilhamentos</span>
+                    <span class="comments">💬 25 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#51</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Revista RH</span>
+                    <span class="category">Bem-estar</span>
+                    <span class="date">2024-01-8</span>
+                </div>
+                <h3 class="title">Como implementar bem-estar com sucesso</h3>
+                <p class="summary">Artigo sobre bem-estar com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 12,401 visualizações</span>
+                    <span class="shares">📤 124 compartilhamentos</span>
+                    <span class="comments">💬 24 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#52</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Brasil</span>
+                    <span class="category">Treinamento</span>
+                    <span class="date">2024-01-8</span>
+                </div>
+                <h3 class="title">Novas tecnologias revolucionam treinamento</h3>
+                <p class="summary">Artigo sobre treinamento com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 12,252 visualizações</span>
+                    <span class="shares">📤 122 compartilhamentos</span>
+                    <span class="comments">💬 24 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#53</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão RH</span>
+                    <span class="category">Retenção</span>
+                    <span class="date">2024-01-8</span>
+                </div>
+                <h3 class="title">Estratégias inovadoras para retenção</h3>
+                <p class="summary">Artigo sobre retenção com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 12,103 visualizações</span>
+                    <span class="shares">📤 121 compartilhamentos</span>
+                    <span class="comments">💬 24 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#54</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Digital</span>
+                    <span class="category">Remuneração</span>
+                    <span class="date">2024-01-8</span>
+                </div>
+                <h3 class="title">O futuro do remuneração no Brasil</h3>
+                <p class="summary">Artigo sobre remuneração com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 11,954 visualizações</span>
+                    <span class="shares">📤 119 compartilhamentos</span>
+                    <span class="comments">💬 23 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#55</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Recrutamento</span>
+                    <span class="date">2024-01-8</span>
+                </div>
+                <h3 class="title">Melhores práticas em recrutamento</h3>
+                <p class="summary">Artigo sobre recrutamento com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 11,805 visualizações</span>
+                    <span class="shares">📤 118 compartilhamentos</span>
+                    <span class="comments">💬 23 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#56</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Online</span>
+                    <span class="category">Gestão</span>
+                    <span class="date">2024-01-7</span>
+                </div>
+                <h3 class="title">Transformação digital no gestão</h3>
+                <p class="summary">Artigo sobre gestão com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 11,656 visualizações</span>
+                    <span class="shares">📤 116 compartilhamentos</span>
+                    <span class="comments">💬 23 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#57</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão de Pessoas</span>
+                    <span class="category">Liderança</span>
+                    <span class="date">2024-01-7</span>
+                </div>
+                <h3 class="title">Cases de sucesso em liderança</h3>
+                <p class="summary">Artigo sobre liderança com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 11,507 visualizações</span>
+                    <span class="shares">📤 115 compartilhamentos</span>
+                    <span class="comments">💬 23 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#58</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH News</span>
+                    <span class="category">Cultura</span>
+                    <span class="date">2024-01-7</span>
+                </div>
+                <h3 class="title">Desafios e oportunidades do cultura</h3>
+                <p class="summary">Artigo sobre cultura com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 11,358 visualizações</span>
+                    <span class="shares">📤 113 compartilhamentos</span>
+                    <span class="comments">💬 22 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#59</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Trends</span>
+                    <span class="category">Inovação</span>
+                    <span class="date">2024-01-7</span>
+                </div>
+                <h3 class="title">Guia completo sobre inovação</h3>
+                <p class="summary">Artigo sobre inovação com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 11,209 visualizações</span>
+                    <span class="shares">📤 112 compartilhamentos</span>
+                    <span class="comments">💬 22 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#60</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Legislação</span>
+                    <span class="date">2024-01-7</span>
+                </div>
+                <h3 class="title">Tendências de RH que dominarão 2024</h3>
+                <p class="summary">Artigo sobre legislação com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 11,060 visualizações</span>
+                    <span class="shares">📤 110 compartilhamentos</span>
+                    <span class="comments">💬 22 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#61</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Revista RH</span>
+                    <span class="category">Tecnologia</span>
+                    <span class="date">2024-01-7</span>
+                </div>
+                <h3 class="title">Como implementar tecnologia com sucesso</h3>
+                <p class="summary">Artigo sobre tecnologia com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 10,911 visualizações</span>
+                    <span class="shares">📤 109 compartilhamentos</span>
+                    <span class="comments">💬 21 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#62</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Brasil</span>
+                    <span class="category">Trabalho Remoto</span>
+                    <span class="date">2024-01-7</span>
+                </div>
+                <h3 class="title">Novas tecnologias revolucionam trabalho remoto</h3>
+                <p class="summary">Artigo sobre trabalho remoto com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 10,762 visualizações</span>
+                    <span class="shares">📤 107 compartilhamentos</span>
+                    <span class="comments">💬 21 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#63</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão RH</span>
+                    <span class="category">Benefícios</span>
+                    <span class="date">2024-01-6</span>
+                </div>
+                <h3 class="title">Estratégias inovadoras para benefícios</h3>
+                <p class="summary">Artigo sobre benefícios com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 10,613 visualizações</span>
+                    <span class="shares">📤 106 compartilhamentos</span>
+                    <span class="comments">💬 21 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#64</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Digital</span>
+                    <span class="category">Diversidade</span>
+                    <span class="date">2024-01-6</span>
+                </div>
+                <h3 class="title">O futuro do diversidade no Brasil</h3>
+                <p class="summary">Artigo sobre diversidade com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 10,464 visualizações</span>
+                    <span class="shares">📤 104 compartilhamentos</span>
+                    <span class="comments">💬 20 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#65</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Gerações</span>
+                    <span class="date">2024-01-6</span>
+                </div>
+                <h3 class="title">Melhores práticas em gerações</h3>
+                <p class="summary">Artigo sobre gerações com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 10,315 visualizações</span>
+                    <span class="shares">📤 103 compartilhamentos</span>
+                    <span class="comments">💬 20 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#66</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Online</span>
+                    <span class="category">Bem-estar</span>
+                    <span class="date">2024-01-6</span>
+                </div>
+                <h3 class="title">Transformação digital no bem-estar</h3>
+                <p class="summary">Artigo sobre bem-estar com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 10,166 visualizações</span>
+                    <span class="shares">📤 101 compartilhamentos</span>
+                    <span class="comments">💬 20 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#67</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão de Pessoas</span>
+                    <span class="category">Treinamento</span>
+                    <span class="date">2024-01-6</span>
+                </div>
+                <h3 class="title">Cases de sucesso em treinamento</h3>
+                <p class="summary">Artigo sobre treinamento com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 10,017 visualizações</span>
+                    <span class="shares">📤 100 compartilhamentos</span>
+                    <span class="comments">💬 20 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#68</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH News</span>
+                    <span class="category">Retenção</span>
+                    <span class="date">2024-01-6</span>
+                </div>
+                <h3 class="title">Desafios e oportunidades do retenção</h3>
+                <p class="summary">Artigo sobre retenção com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 9,868 visualizações</span>
+                    <span class="shares">📤 98 compartilhamentos</span>
+                    <span class="comments">💬 19 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#69</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Trends</span>
+                    <span class="category">Remuneração</span>
+                    <span class="date">2024-01-6</span>
+                </div>
+                <h3 class="title">Guia completo sobre remuneração</h3>
+                <p class="summary">Artigo sobre remuneração com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 9,719 visualizações</span>
+                    <span class="shares">📤 97 compartilhamentos</span>
+                    <span class="comments">💬 19 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#70</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Recrutamento</span>
+                    <span class="date">2024-01-5</span>
+                </div>
+                <h3 class="title">Tendências de RH que dominarão 2025</h3>
+                <p class="summary">Artigo sobre recrutamento com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 9,570 visualizações</span>
+                    <span class="shares">📤 95 compartilhamentos</span>
+                    <span class="comments">💬 19 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#71</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Revista RH</span>
+                    <span class="category">Gestão</span>
+                    <span class="date">2024-01-5</span>
+                </div>
+                <h3 class="title">Como implementar gestão com sucesso</h3>
+                <p class="summary">Artigo sobre gestão com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 9,421 visualizações</span>
+                    <span class="shares">📤 94 compartilhamentos</span>
+                    <span class="comments">💬 18 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#72</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Brasil</span>
+                    <span class="category">Liderança</span>
+                    <span class="date">2024-01-5</span>
+                </div>
+                <h3 class="title">Novas tecnologias revolucionam liderança</h3>
+                <p class="summary">Artigo sobre liderança com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 9,272 visualizações</span>
+                    <span class="shares">📤 92 compartilhamentos</span>
+                    <span class="comments">💬 18 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#73</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão RH</span>
+                    <span class="category">Cultura</span>
+                    <span class="date">2024-01-5</span>
+                </div>
+                <h3 class="title">Estratégias inovadoras para cultura</h3>
+                <p class="summary">Artigo sobre cultura com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 9,123 visualizações</span>
+                    <span class="shares">📤 91 compartilhamentos</span>
+                    <span class="comments">💬 18 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#74</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Digital</span>
+                    <span class="category">Inovação</span>
+                    <span class="date">2024-01-5</span>
+                </div>
+                <h3 class="title">O futuro do inovação no Brasil</h3>
+                <p class="summary">Artigo sobre inovação com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 8,974 visualizações</span>
+                    <span class="shares">📤 89 compartilhamentos</span>
+                    <span class="comments">💬 17 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#75</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Legislação</span>
+                    <span class="date">2024-01-5</span>
+                </div>
+                <h3 class="title">Melhores práticas em legislação</h3>
+                <p class="summary">Artigo sobre legislação com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 8,825 visualizações</span>
+                    <span class="shares">📤 88 compartilhamentos</span>
+                    <span class="comments">💬 17 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#76</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Online</span>
+                    <span class="category">Tecnologia</span>
+                    <span class="date">2024-01-5</span>
+                </div>
+                <h3 class="title">Transformação digital no tecnologia</h3>
+                <p class="summary">Artigo sobre tecnologia com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 8,676 visualizações</span>
+                    <span class="shares">📤 86 compartilhamentos</span>
+                    <span class="comments">💬 17 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#77</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão de Pessoas</span>
+                    <span class="category">Trabalho Remoto</span>
+                    <span class="date">2024-01-4</span>
+                </div>
+                <h3 class="title">Cases de sucesso em trabalho remoto</h3>
+                <p class="summary">Artigo sobre trabalho remoto com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 8,527 visualizações</span>
+                    <span class="shares">📤 85 compartilhamentos</span>
+                    <span class="comments">💬 17 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#78</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH News</span>
+                    <span class="category">Benefícios</span>
+                    <span class="date">2024-01-4</span>
+                </div>
+                <h3 class="title">Desafios e oportunidades do benefícios</h3>
+                <p class="summary">Artigo sobre benefícios com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 8,378 visualizações</span>
+                    <span class="shares">📤 83 compartilhamentos</span>
+                    <span class="comments">💬 16 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#79</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Trends</span>
+                    <span class="category">Diversidade</span>
+                    <span class="date">2024-01-4</span>
+                </div>
+                <h3 class="title">Guia completo sobre diversidade</h3>
+                <p class="summary">Artigo sobre diversidade com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 8,229 visualizações</span>
+                    <span class="shares">📤 82 compartilhamentos</span>
+                    <span class="comments">💬 16 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#80</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Gerações</span>
+                    <span class="date">2024-01-4</span>
+                </div>
+                <h3 class="title">Tendências de RH que dominarão 2026</h3>
+                <p class="summary">Artigo sobre gerações com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 8,080 visualizações</span>
+                    <span class="shares">📤 80 compartilhamentos</span>
+                    <span class="comments">💬 16 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#81</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Revista RH</span>
+                    <span class="category">Bem-estar</span>
+                    <span class="date">2024-01-4</span>
+                </div>
+                <h3 class="title">Como implementar bem-estar com sucesso</h3>
+                <p class="summary">Artigo sobre bem-estar com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 7,931 visualizações</span>
+                    <span class="shares">📤 79 compartilhamentos</span>
+                    <span class="comments">💬 15 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#82</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Brasil</span>
+                    <span class="category">Treinamento</span>
+                    <span class="date">2024-01-4</span>
+                </div>
+                <h3 class="title">Novas tecnologias revolucionam treinamento</h3>
+                <p class="summary">Artigo sobre treinamento com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 7,782 visualizações</span>
+                    <span class="shares">📤 77 compartilhamentos</span>
+                    <span class="comments">💬 15 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#83</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão RH</span>
+                    <span class="category">Retenção</span>
+                    <span class="date">2024-01-4</span>
+                </div>
+                <h3 class="title">Estratégias inovadoras para retenção</h3>
+                <p class="summary">Artigo sobre retenção com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 7,633 visualizações</span>
+                    <span class="shares">📤 76 compartilhamentos</span>
+                    <span class="comments">💬 15 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#84</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Digital</span>
+                    <span class="category">Remuneração</span>
+                    <span class="date">2024-01-3</span>
+                </div>
+                <h3 class="title">O futuro do remuneração no Brasil</h3>
+                <p class="summary">Artigo sobre remuneração com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 7,484 visualizações</span>
+                    <span class="shares">📤 74 compartilhamentos</span>
+                    <span class="comments">💬 14 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#85</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Recrutamento</span>
+                    <span class="date">2024-01-3</span>
+                </div>
+                <h3 class="title">Melhores práticas em recrutamento</h3>
+                <p class="summary">Artigo sobre recrutamento com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 7,335 visualizações</span>
+                    <span class="shares">📤 73 compartilhamentos</span>
+                    <span class="comments">💬 14 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#86</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Online</span>
+                    <span class="category">Gestão</span>
+                    <span class="date">2024-01-3</span>
+                </div>
+                <h3 class="title">Transformação digital no gestão</h3>
+                <p class="summary">Artigo sobre gestão com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 7,186 visualizações</span>
+                    <span class="shares">📤 71 compartilhamentos</span>
+                    <span class="comments">💬 14 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#87</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão de Pessoas</span>
+                    <span class="category">Liderança</span>
+                    <span class="date">2024-01-3</span>
+                </div>
+                <h3 class="title">Cases de sucesso em liderança</h3>
+                <p class="summary">Artigo sobre liderança com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 7,037 visualizações</span>
+                    <span class="shares">📤 70 compartilhamentos</span>
+                    <span class="comments">💬 14 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#88</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH News</span>
+                    <span class="category">Cultura</span>
+                    <span class="date">2024-01-3</span>
+                </div>
+                <h3 class="title">Desafios e oportunidades do cultura</h3>
+                <p class="summary">Artigo sobre cultura com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 6,888 visualizações</span>
+                    <span class="shares">📤 68 compartilhamentos</span>
+                    <span class="comments">💬 13 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#89</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Trends</span>
+                    <span class="category">Inovação</span>
+                    <span class="date">2024-01-3</span>
+                </div>
+                <h3 class="title">Guia completo sobre inovação</h3>
+                <p class="summary">Artigo sobre inovação com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 6,739 visualizações</span>
+                    <span class="shares">📤 67 compartilhamentos</span>
+                    <span class="comments">💬 13 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#90</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Legislação</span>
+                    <span class="date">2024-01-3</span>
+                </div>
+                <h3 class="title">Tendências de RH que dominarão 2024</h3>
+                <p class="summary">Artigo sobre legislação com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 6,590 visualizações</span>
+                    <span class="shares">📤 65 compartilhamentos</span>
+                    <span class="comments">💬 13 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#91</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Revista RH</span>
+                    <span class="category">Tecnologia</span>
+                    <span class="date">2024-01-2</span>
+                </div>
+                <h3 class="title">Como implementar tecnologia com sucesso</h3>
+                <p class="summary">Artigo sobre tecnologia com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 6,441 visualizações</span>
+                    <span class="shares">📤 64 compartilhamentos</span>
+                    <span class="comments">💬 12 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#92</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Brasil</span>
+                    <span class="category">Trabalho Remoto</span>
+                    <span class="date">2024-01-2</span>
+                </div>
+                <h3 class="title">Novas tecnologias revolucionam trabalho remoto</h3>
+                <p class="summary">Artigo sobre trabalho remoto com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 6,292 visualizações</span>
+                    <span class="shares">📤 62 compartilhamentos</span>
+                    <span class="comments">💬 12 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#93</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão RH</span>
+                    <span class="category">Benefícios</span>
+                    <span class="date">2024-01-2</span>
+                </div>
+                <h3 class="title">Estratégias inovadoras para benefícios</h3>
+                <p class="summary">Artigo sobre benefícios com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 6,143 visualizações</span>
+                    <span class="shares">📤 61 compartilhamentos</span>
+                    <span class="comments">💬 12 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#94</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Digital</span>
+                    <span class="category">Diversidade</span>
+                    <span class="date">2024-01-2</span>
+                </div>
+                <h3 class="title">O futuro do diversidade no Brasil</h3>
+                <p class="summary">Artigo sobre diversidade com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 5,994 visualizações</span>
+                    <span class="shares">📤 59 compartilhamentos</span>
+                    <span class="comments">💬 11 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#95</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal Carreira</span>
+                    <span class="category">Gerações</span>
+                    <span class="date">2024-01-2</span>
+                </div>
+                <h3 class="title">Melhores práticas em gerações</h3>
+                <p class="summary">Artigo sobre gerações com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 5,845 visualizações</span>
+                    <span class="shares">📤 58 compartilhamentos</span>
+                    <span class="comments">💬 11 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#96</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH Online</span>
+                    <span class="category">Bem-estar</span>
+                    <span class="date">2024-01-2</span>
+                </div>
+                <h3 class="title">Transformação digital no bem-estar</h3>
+                <p class="summary">Artigo sobre bem-estar com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 5,696 visualizações</span>
+                    <span class="shares">📤 56 compartilhamentos</span>
+                    <span class="comments">💬 11 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#97</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Gestão de Pessoas</span>
+                    <span class="category">Treinamento</span>
+                    <span class="date">2024-01-2</span>
+                </div>
+                <h3 class="title">Cases de sucesso em treinamento</h3>
+                <p class="summary">Artigo sobre treinamento com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 5,547 visualizações</span>
+                    <span class="shares">📤 55 compartilhamentos</span>
+                    <span class="comments">💬 11 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#98</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">RH News</span>
+                    <span class="category">Retenção</span>
+                    <span class="date">2024-01-1</span>
+                </div>
+                <h3 class="title">Desafios e oportunidades do retenção</h3>
+                <p class="summary">Artigo sobre retenção com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 5,398 visualizações</span>
+                    <span class="shares">📤 53 compartilhamentos</span>
+                    <span class="comments">💬 10 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#99</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">HR Trends</span>
+                    <span class="category">Remuneração</span>
+                    <span class="date">2024-01-1</span>
+                </div>
+                <h3 class="title">Guia completo sobre remuneração</h3>
+                <p class="summary">Artigo sobre remuneração com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 5,249 visualizações</span>
+                    <span class="shares">📤 52 compartilhamentos</span>
+                    <span class="comments">💬 10 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item top-100">
+            <div class="rank-badge">#100</div>
+            <div class="news-content">
+                <div class="news-header">
+                    <span class="source">Portal RH Brasil</span>
+                    <span class="category">Recrutamento</span>
+                    <span class="date">2024-01-1</span>
+                </div>
+                <h3 class="title">Tendências de RH que dominarão 2025</h3>
+                <p class="summary">Artigo sobre recrutamento com insights valiosos para profissionais de RH. Inclui dados atualizados e estratégias práticas.</p>
+                <div class="engagement">
+                    <span class="views">👁️ 5,100 visualizações</span>
+                    <span class="shares">📤 51 compartilhamentos</span>
+                    <span class="comments">💬 10 comentários</span>
+                </div>
+            </div>
+        </div>
+        
+            </div>
+            
+            <div class="sidebar">
+                <h3>📈 Estatísticas por Categoria</h3>
+                
+        <div class="stat-item">
+            <div class="stat-label">Legislação</div>
+            <div class="stat-number">7 artigos</div>
+            <div class="stat-views">198,912 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Tecnologia</div>
+            <div class="stat-number">7 artigos</div>
+            <div class="stat-views">170,927 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Trabalho Remoto</div>
+            <div class="stat-number">7 artigos</div>
+            <div class="stat-views">158,931 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Benefícios</div>
+            <div class="stat-number">7 artigos</div>
+            <div class="stat-views">146,926 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Diversidade</div>
+            <div class="stat-number">7 artigos</div>
+            <div class="stat-views">134,921 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Gerações</div>
+            <div class="stat-number">7 artigos</div>
+            <div class="stat-views">122,916 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Bem-estar</div>
+            <div class="stat-number">7 artigos</div>
+            <div class="stat-views">110,911 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Treinamento</div>
+            <div class="stat-number">7 artigos</div>
+            <div class="stat-views">98,916 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Retenção</div>
+            <div class="stat-number">7 artigos</div>
+            <div class="stat-views">87,011 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Remuneração</div>
+            <div class="stat-number">7 artigos</div>
+            <div class="stat-views">84,895 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Gestão</div>
+            <div class="stat-number">6 artigos</div>
+            <div class="stat-views">76,641 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Liderança</div>
+            <div class="stat-number">6 artigos</div>
+            <div class="stat-views">75,747 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Cultura</div>
+            <div class="stat-number">6 artigos</div>
+            <div class="stat-views">74,853 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Inovação</div>
+            <div class="stat-number">6 artigos</div>
+            <div class="stat-views">73,959 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Recrutamento</div>
+            <div class="stat-number">6 artigos</div>
+            <div class="stat-views">64,125 visualizações</div>
+        </div>
+        
+                
+                <h3>📰 Estatísticas por Fonte</h3>
+                
+        <div class="stat-item">
+            <div class="stat-label">Revista RH</div>
+            <div class="stat-number">11 artigos</div>
+            <div class="stat-views">253,575 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">HR Brasil</div>
+            <div class="stat-number">11 artigos</div>
+            <div class="stat-views">230,031 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Portal RH Brasil</div>
+            <div class="stat-number">10 artigos</div>
+            <div class="stat-views">225,387 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Gestão RH</div>
+            <div class="stat-number">11 artigos</div>
+            <div class="stat-views">206,568 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">RH Digital</div>
+            <div class="stat-number">11 artigos</div>
+            <div class="stat-views">192,894 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Portal Carreira</div>
+            <div class="stat-number">9 artigos</div>
+            <div class="stat-views">106,245 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">RH Online</div>
+            <div class="stat-number">9 artigos</div>
+            <div class="stat-views">104,904 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Gestão de Pessoas</div>
+            <div class="stat-number">9 artigos</div>
+            <div class="stat-views">103,563 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">RH News</div>
+            <div class="stat-number">9 artigos</div>
+            <div class="stat-views">102,222 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">HR Trends</div>
+            <div class="stat-number">9 artigos</div>
+            <div class="stat-views">100,881 visualizações</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-label">Portal RH</div>
+            <div class="stat-number">1 artigos</div>
+            <div class="stat-views">54,321 visualizações</div>
+        </div>
+        
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Dados coletados em 2025-08-14 04:48:43 | Top 100 HR News Collector</p>
+            <p>Ranking baseado em visualizações, compartilhamentos e engajamento das notícias</p>
+        </div>
+    </div>
+</body>
+</html>
+    
